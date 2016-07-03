@@ -30,6 +30,7 @@ function initMap() {
 // ++ Sorting ++
 // The functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
 // Multivar ex: newlist = sortByMaxCost(sortByType(restaurants, 'Coffee'), 1);
+// Each sort returns a list of Restaurant objects
 function sortByMaxCost(objList, value) {
   var tmp = [];
   for (var i = 0; i < objList.length; i++) {
@@ -76,6 +77,7 @@ function sortByType(objList, type) {
 //++-------------------------++
 // ++ Program Flow Functions ++
 function initializeData() {
+// gets data from storage or dataset
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
     console.log('localStorage for eatFellows exists.');
