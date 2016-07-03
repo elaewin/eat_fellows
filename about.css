@@ -1,0 +1,15 @@
+* {
+  font-family: 'Monda', sans-serif;
+}
+
+header {
+  font-family: 'Monda', sans-serif;
+  font-size: 60px;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 960px;
+  margin: 0 auto;
+}
