@@ -51,7 +51,7 @@ function updateTypes() {
 function removeRestaurant(name) {
 // removes a restaurant from the dataset in memory
   for (var i = 0; i < restaurants.length; i++) {
-    if (restaurants[i].name = name) {
+    if (restaurants[i].name === name) {
       restaurants.splice(i, 1);
     }
   }
