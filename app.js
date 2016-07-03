@@ -29,6 +29,7 @@ function initMap() {
 //++----------++
 // ++ Sorting ++
 // The functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
+// Multivar ex: newlist = sortByMaxCost(sortByType(restaurants, 'Coffee'), 1);
 function sortByMaxCost(objList, value) {
   var tmp = [];
   for (var i = 0; i < objList.length; i++) {
