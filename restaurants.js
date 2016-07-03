@@ -1,9 +1,9 @@
-var Restaurants = []; //Array of all restaurant objects,filled from localStorage or initial dataset
+var restaurants = []; //Array of all restaurant objects,filled from localStorage or initial dataset
 
 function Restaurant(name, address, type, vegan) {
   this.name = name;
   this.address = address;
-  this.type = type; // Array of types
+  this.type = type; // Array of types of food
   this.vegan = vegan; //If it has KNOWN vegan options for an entree (sides don't count, it would suck if you were looking for a vegan place that only had a side of broccoli or something
   //also, by default I am listing coffee joints as false for vegan, since I think vegan applies more towards food, and if they select coffee from search, vegan checkbox disappears
   this.reviews = [];
