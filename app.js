@@ -3,10 +3,11 @@ var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 var geocoder;  //used for addy lookup, see test repo
 var typesOfFood = [];
 
-//++ Google maps
+//++ Google maps ++
 function initMap() {
-  //this func is called in the google link in the HTML
+  //this func is called in the google link in the HTML, don't need to call in main
   geocoder = new google.maps.Geocoder();
+  var cfIcon = 'img/cfIcon.png';
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: cfLoc,
@@ -16,6 +17,7 @@ function initMap() {
 
   var marker = new google.maps.Marker({
     map: map,
+    icon: cfIcon, //custom icon for CF
     position: cfLoc,
     title: 'Code Fellows'
   });
@@ -42,9 +44,10 @@ function updateTypes() {
       }
     }
   }
+  console.log('types of food updated');
 }
 
-//++ Data manipulation debug tools
+//++ Data manipulation/debug tools ++
 function removeRestaurant(name) {
 // removes a restaurant from the dataset in memory
   for (var i = 0; i < Restaurants.length; i++) {
@@ -58,9 +61,11 @@ function addTestRestaurant(name, types) {
 //creates a bogus Restaurant to quickly test (types is an array of strings)
   tmp = new Restaurant(name, '3000 1st Ave S', types, true);
   tmp.reviews = new Review('Anonymous (test)', 'A test boiga!', 0, 2, 2);
+  tmp.reviews.comment = 'This is a test.  Blah blah blah';
   restaurants.push(tmp);
   updateTypes();
 }
+//++----------------++
 
 function main() {
 //main program loop
