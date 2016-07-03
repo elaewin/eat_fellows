@@ -58,10 +58,10 @@ function removeRestaurant(name) {
 }
 
 function addTestRestaurant(name, types) {
-//creates a bogus Restaurant to quickly test (types is an array of strings)
+//creates a bogus vegan Restaurant to quickly test (types is an array of strings)
   tmp = new Restaurant(name, '3000 1st Ave S', types, true);
-  tmp.reviews = new Review('Anonymous (test)', 'A test boiga!', 0, 2, 2);
-  tmp.reviews.comment = 'This is a test.  Blah blah blah';
+  tmp.reviews = [new Review('Anonymous (test)', 'A test boiga!', 0, 2, 2)];
+  tmp.reviews[0].comment = 'This is a test.  Blah blah blah';
   restaurants.push(tmp);
   updateTypes();
 }

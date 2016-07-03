@@ -7,7 +7,7 @@ function Restaurant(name, address, type, vegan) {
   this.vegan = vegan; //If it has KNOWN vegan options for an entree (sides don't count, it would suck if you were looking for a vegan place that only had a side of broccoli or something
   //also, by default I am listing coffee joints as false for vegan, since I think vegan applies more towards food, and if they select coffee from search, vegan checkbox disappears
   this.reviews = [];
-  //todo:  add img property with img path for the restaurant;
+  //to do:  add img property with img path for the restaurant;
 
 // Methods
   this.avgRating = function() {
@@ -26,13 +26,14 @@ function Restaurant(name, address, type, vegan) {
   };
 }
 
-function getAverage(ObjToAvg, property) {
+function getAverage(ObjsToAvg, property) {
+// gets the average value from an array of objects(ObjsToAvg) with a property of interest
   var sum = 0;
-  for (var i = 0; i < ObjToAvg.length; i++) {
-    sum += ObjToAvg[i][property];
+  for (var i = 0; i < ObjsToAvg.length; i++) {
+    sum += ObjsToAvg[i][property];
   }
-  if (ObjToAvg.length) {
-    return sum / ObjToAvg.length;
+  if (ObjsToAvg.length) {
+    return sum / ObjsToAvg.length;
   } else {
     return -1;  //error code
   }
