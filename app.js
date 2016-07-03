@@ -28,9 +28,9 @@ function initMap() {
 
 //++----------++
 // ++ Sorting ++
-// Some functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
+// The functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
 function sortByMaxCost(objList, value) {
-  tmp = [];
+  var tmp = [];
   for (var i = 0; i < objList.length; i++) {
     if (objList[i].avgCost() <= value) {
       tmp.push(objList[i]);
@@ -40,7 +40,7 @@ function sortByMaxCost(objList, value) {
 }
 
 function sortByMinRating(objList, value) {
-  tmp = [];
+  var tmp = [];
   for (var i = 0; i < objList.length; i++) {
     if (objList[i].avgRating() >= value) {
       tmp.push(objList[i]);
@@ -50,7 +50,7 @@ function sortByMinRating(objList, value) {
 }
 
 function sortByCode(objList, goodToCode) {
-  tmp = [];
+  var tmp = [];
   for (var i = 0; i < objList.length; i++) {
     if (objList[i].goodToCode() === goodToCode) {
       tmp.push(objList[i]);
@@ -59,12 +59,12 @@ function sortByCode(objList, goodToCode) {
   return tmp;
 }
 
-function sortByType(type) {
-  tmp = [];
-  for (var i = 0; i < restaurants.length; i++) {
-    for (var j = 0; j < restaurants.length; j++) {
-      if (restaurants[i].type[j] === type) {
-        tmp.push(restaurants[i]);
+function sortByType(objList, type) {
+  var tmp = [];
+  for (var i = 0; i < objList.length; i++) {
+    for (var j = 0; j < objList.length; j++) {
+      if (objList[i].type[j] === type) {
+        tmp.push(objList[i]);
         break;
       }
     }
