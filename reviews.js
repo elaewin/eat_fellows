@@ -8,7 +8,10 @@ function Review(name, faveDish, code, cost, rating) {
 }
 
 var fivept1 = new Review('Kris Skelton', 'Happy Hour Burger', 0, 3, 4);
-five1.comment = 'It\'s a dive bar (I say this with love). I do not recommend ordering off of the menu during the day - wait for happy hour to score a cheap burger and fries, then wash down with a reasonably priced beer. There are no to-go orders for the happy hour menu, so plan to stay for a little while (and don\'t be in a hurry to pay your bill because the waitstaff ain\'t got time for your not having time).';
+fivept1.comment = 'It\'s a dive bar (I say this with love). I do not recommend ordering off of the menu during the day - wait for happy hour to score a cheap burger and fries, then wash down with a reasonably priced beer. There are no to-go orders for the happy hour menu, so plan to stay for a little while (and don\'t be in a hurry to pay your bill because the waitstaff ain\'t got time for your not having time).';
+
+var fivept2 = new Review('David S', 'Cuban Sandwich', 0, 2, 3);
+fivept2.comment = 'Your quintessential hipster dive bar.  Lively during lunch, semi-loud music, chill bartenders.  I was a little hungover, but the Cuban Sandwich gave me the strength to carry on and keep fighting the good fight.';
 
 var bang1 = new Review('Instructor Brian', 'Chicken Chile Burrito', 0, 3, 5);
 bang1.comment = 'It\'s a "meh" place to code. Possible but not ideal. Also - Bang Bang Cafe is straight up amazing. Everyone should eat there everyday for the rest of their lives.';
