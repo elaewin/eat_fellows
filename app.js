@@ -12,6 +12,7 @@ function initializeData() {
 }
 
 function initMap() {
+  //this func is called in the google link in the HTML
   geocoder = new google.maps.Geocoder();
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -26,3 +27,10 @@ function initMap() {
     title: 'Code Fellows'
   });
 }
+
+function main() {
+//main program loop
+  initializeData();
+}
+
+main();
