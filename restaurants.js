@@ -7,8 +7,37 @@ function Restaurant(name, address, type, vegan) {
   this.vegan = vegan; //If it has KNOWN vegan options for an entree (sides don't count, it would suck if you were looking for a vegan place that only had a side of broccoli or something
   //also, by default I am listing coffee joints as false for vegan, since I think vegan applies more towards food, and if they select coffee from search, vegan checkbox disappears
   this.reviews = [];
+  //todo:  add img property with img path for the restaurant;
+
+// Methods
+  this.avgRating = function() {
+    return getAverage(this.reviews, 'rating');
+  };
+  this.avgCost = function() {
+    return getAverage(this.reviews, 'cost');
+  };
+  this.goodToCode = function() {
+    x = getAverage(this.reviews, 'code');
+    if (x > 0.5) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 }
-//todo:  add img property with img path for the restaurant;
+
+function getAverage(ObjToAvg, property) {
+  var sum = 0;
+  for (var i = 0; i < ObjToAvg.length; i++) {
+    sum += ObjToAvg[i][property];
+  }
+  if (ObjToAvg.length) {
+    return sum / ObjToAvg.length;
+  } else {
+    return -1;  //error code
+  }
+}
+
 var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street', ['American', 'Breakfast'], false);
 var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave', ['Sandwich', 'Mexican', 'Breakfast'], true);
 var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave', ['Coffee'], false);
