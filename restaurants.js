@@ -18,7 +18,7 @@ function Restaurant(name, address, type, vegan) {
   };
   this.goodToCode = function() {
     x = getAverage(this.reviews, 'code');
-    if (x > 0.5) {
+    if (x >= 0.5) {
       return true;
     } else {
       return false;

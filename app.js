@@ -1,11 +1,14 @@
-var map;
-var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
+'use strict';
+// ++ Global Variables ++
+var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
-var typesOfFood = [];
+var typesOfFood = [];   //list which is generated to contain a list of every food category
+var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 
+//++-------------++
 //++ Google maps ++
 function initMap() {
-  //this func is called in the google link in the HTML, don't need to call in main
+// this func is called in the google link in the HTML, we don't need to call it in main()
   geocoder = new google.maps.Geocoder();
   var cfIcon = 'img/cfIcon.png';
 
@@ -22,8 +25,55 @@ function initMap() {
     title: 'Code Fellows'
   });
 }
-//++--------------++
 
+//++----------++
+// ++ Sorting ++
+// Some functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
+function sortByMaxCost(objList, value) {
+  tmp = [];
+  for (var i = 0; i < objList.length; i++) {
+    if (objList[i].avgCost() <= value) {
+      tmp.push(objList[i]);
+    }
+  }
+  return tmp;
+}
+
+function sortByMinRating(objList, value) {
+  tmp = [];
+  for (var i = 0; i < objList.length; i++) {
+    if (objList[i].avgRating() >= value) {
+      tmp.push(objList[i]);
+    }
+  }
+  return tmp;
+}
+
+function sortByCode(objList, goodToCode) {
+  tmp = [];
+  for (var i = 0; i < objList.length; i++) {
+    if (objList[i].goodToCode() === goodToCode) {
+      tmp.push(objList[i]);
+    }
+  }
+  return tmp;
+}
+
+function sortByType(type) {
+  tmp = [];
+  for (var i = 0; i < restaurants.length; i++) {
+    for (var j = 0; j < restaurants.length; j++) {
+      if (restaurants[i].type[j] === type) {
+        tmp.push(restaurants[i]);
+        break;
+      }
+    }
+  }
+  return tmp;
+}
+
+//++-------------------------++
+// ++ Program Flow Functions ++
 function initializeData() {
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
@@ -36,7 +86,7 @@ function initializeData() {
 }
 
 function updateTypes() {
-//updates the types of food list for the website for ppl to choose from
+// updates the types of food list for the website for ppl to sort with
   for (var i = 0; i < restaurants.length; i++) {
     for (var j = 0; j < restaurants[i].type.length; j++) {
       if (typesOfFood.indexOf(restaurants[i].type[j]) === -1) { //if not in list, append it
@@ -47,6 +97,7 @@ function updateTypes() {
   console.log('types of food updated');
 }
 
+//++-------------------------------++
 //++ Data manipulation/debug tools ++
 function removeRestaurant(name) {
 // removes a restaurant from the dataset in memory
@@ -58,17 +109,18 @@ function removeRestaurant(name) {
 }
 
 function addTestRestaurant(name, types) {
-//creates a bogus vegan Restaurant to quickly test (types is an array of strings)
+// creates a bogus vegan Restaurant to quickly test (types is an array of strings)
   tmp = new Restaurant(name, '3000 1st Ave S', types, true);
   tmp.reviews = [new Review('Anonymous (test)', 'A test boiga!', 0, 2, 2)];
   tmp.reviews[0].comment = 'This is a test.  Blah blah blah';
   restaurants.push(tmp);
   updateTypes();
 }
-//++----------------++
 
+//++-------++
+// ++ Main ++
 function main() {
-//main program loop
+// main program loop - step by step of program - should only be funcs in here
   initializeData();
 }
 
