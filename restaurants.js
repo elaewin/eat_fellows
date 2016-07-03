@@ -1,4 +1,4 @@
-var Restaurants = []; //Array of all restaurant objects
+var Restaurants = []; //Array of all restaurant objects,filled from localStorage or initial dataset
 
 function Restaurant(name, address, type, vegan) {
   this.name = name;
@@ -6,10 +6,9 @@ function Restaurant(name, address, type, vegan) {
   this.type = type; // Array of types
   this.vegan = vegan; //If it has KNOWN vegan options for an entree (sides don't count, it would suck if you were looking for a vegan place that only had a side of broccoli or something
   //also, by default I am listing coffee joints as false for vegan, since I think vegan applies more towards food, and if they select coffee from search, vegan checkbox disappears
-
   this.reviews = [];
 }
-
+//todo:  add img property with img path for the restaurant;
 var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street', ['American', 'Breakfast'], false);
 var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave', ['Sandwich', 'Mexican', 'Breakfast'], true);
 var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave', ['Coffee'], false);
