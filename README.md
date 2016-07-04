@@ -2,6 +2,8 @@
 
 Color palette can be found at [http://paletton.com/#uid=3020u0kpZpZfExGkDsesdkExFfE](http://paletton.com/#uid=3020u0kpZpZfExGkDsesdkExFfE)
 
+Code Fellows logo from: https://www.switchup.org/bootcamps/code-fellows
+
 ### Fonts used:
 
 * **Titling:** [Monda](https://fonts.google.com/specimen/Monda?selection.family=Monda:400,700&query=Monda)

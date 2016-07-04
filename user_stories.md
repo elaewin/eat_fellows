@@ -11,4 +11,4 @@ Eat Fellows is a site where users select the type of restaurant they are seeking
 
 * Alex has been coding all morning and would like some good Thai food for lunch.
 
-* Barb and Seema are looking for a coffee shop where they can do pair programming. 
+* Barb and Seema are looking for a coffee shop where they can do pair programming.
