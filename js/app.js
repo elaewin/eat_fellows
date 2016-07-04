@@ -173,8 +173,10 @@ function updateResults() {
   console.log(results);
   buildMarkers(results);
 }
-//put eventListeners right in here --
+function listenForEvents() {
+// put eventListeners right in here --
 
+}
 //++-------------------------++
 // ++ Program Flow Functions ++
 function initializeData() {
