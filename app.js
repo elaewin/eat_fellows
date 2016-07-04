@@ -116,16 +116,16 @@ function codeClick(code) {
 }
 
 function updateResults() {
-// updates the results and then markers after search item chosen
+// updates the results and then loc markers after search item chosen
   var results = [];
   for (var i = 0; i < typeList.length; i++) {
     if (costList.indexOf(typeList[i]) != -1 && ratingList.indexOf(typeList[i]) != -1 && codeList.indexOf(typeList[i]) != -1) {
       results.push(typeList[i]);
     }
   }
+  console.log(results);
   buildMarkers(results);
 }
-
 //put eventListeners right in here --
 
 //++-------------------------++
