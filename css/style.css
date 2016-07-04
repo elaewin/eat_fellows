@@ -1,0 +1,77 @@
+/* * {
+  outline: 1px dashed blue;
+} */
+
+/* BASE STYLES */
+
+body {
+  background-color: #262626;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+header, footer {
+  width: 100%;
+  background-color: #a51a13;
+}
+
+main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-family: "Monda", sans-serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.25em;
+}
+
+h3, h4 {
+  font-family: "Source Code Pro", monotype;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+#map {
+  height: 500px;
+  width: 500px;
+  display:block;
+  margin: 30px auto;
+}
+
+header div {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 4em;
+  text-align: center;
+  padding: 30px 0 35px;
+}
+
+#description h4 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+footer {
+  font-family: "Source Code Pro", monotype;
+  height: 70px;
+}
+
+footer p {
+  padding: 20px 0;
+  text-align: center;
+}
