@@ -78,6 +78,47 @@ function sortByType(objList, type) {
   }
   return tmp;
 }
+//++-------------++
+// ++ event functions for search ++
+// input: value from webpage sorting elements after they change
+// output: updated matching array
+function typeClick(type) {
+  if (type) {
+    typeList = sortByType(restaurants, type);
+    updateResults();
+  }
+}
+
+function costClick(cost) {
+  if (cost) {
+    costList = sortByMaxCost(restaurants, cost);
+    updateResults();
+  }
+}
+
+function ratingClick(rating) {
+  if (rating) {
+    ratingList = sortByMinRating(restaurants, rating);
+    updateResults();
+  }
+}
+
+function codeClick(code) {
+  if (code) {
+    codeList = sortByCode(restaurants, code);
+    updateResults();
+  }
+}
+
+function updateResults() {
+// updates the results and then markers after search item chosen
+  var results = [];
+  for (var i = 0; i < typeList.length; i++) {
+    if (costList.indexOf(typeList[i]) !=)
+  }
+}
+
+//put event listeners right here --
 
 //++-------------------------++
 // ++ Program Flow Functions ++
