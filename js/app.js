@@ -31,6 +31,11 @@ function initMap() {
   });
 }
 
+function buildMarkers(markerList) {
+  //clear markers on page
+  //build markers from the list
+}
+
 //++----------++
 // ++ Sorting ++
 // The functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
@@ -111,14 +116,17 @@ function codeClick(code) {
 }
 
 function updateResults() {
-// updates the results and then markers after search item chosen
+// updates the results and then loc markers after search item chosen
   var results = [];
   for (var i = 0; i < typeList.length; i++) {
-    if (costList.indexOf(typeList[i]) !=)
+    if (costList.indexOf(typeList[i]) != -1 && ratingList.indexOf(typeList[i]) != -1 && codeList.indexOf(typeList[i]) != -1) {
+      results.push(typeList[i]);
+    }
   }
+  console.log(results);
+  buildMarkers(results);
 }
-
-//put event listeners right here --
+//put eventListeners right in here --
 
 //++-------------------------++
 // ++ Program Flow Functions ++
