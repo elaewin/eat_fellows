@@ -19,9 +19,6 @@ bang1.comment = 'It\'s a "meh" place to code. Possible but not ideal. Also - Ban
 var cherry1 = new Review('Kris Skelton', '12oz iced Americano with heavy cream', 0, 2, 4);
 cherry1.comment = 'There is one table that can accommodate four people, as I recall. I don\'t believe they have WiFi. I mostly go here because it\'s a reasonable walk from Code Fellows (15 min round trip). They serve sandwiches and light fare, and the pastries are good. The coffee is excellent and the regular staff are all really nice. Heavy cream is available upon request.';
 
-var drip1 = new Review('Kris Skelton', 'Iced Americano', 0, 1, 1);
-drip1.comment = 'If you like being treated like a nuisance, and you like getting the wrong beverage, this is the place! It\'s almost as if their business model is based on Kevin Smith\'s slacker/hate-my-job film "Clerks" including the bros arguing behind the counter.';
-
 var mod1 = new Review('Erica', 'Pizza with grilld asparagus', 0, 2, 3);
 mod1.comment = 'Lines at lunch are crazy when the weather is nice.';
 

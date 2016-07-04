@@ -1,15 +1,16 @@
 'use strict';
 // ++ Global Variables ++
-var map;  //google map object
-var geocoder;  //used for addy lookup, see test repo
 var typesOfFood = [];   //list which is generated to contain a list of every food category
-var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
-var restaurants = [];
-var typeList = [];  //Array of Restaurant objs that meet search criteria
-var costList = [];
+
+var typeList = [];  //Array of Restaurant objs that meet search criteria by type
+var costList = [];  // Same for cost..etc.
 var ratingList = [];
 var codeList = [];
+
+var map;  //google map object
+var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
+var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 
 //++-------------++
 //++ Google maps ++
@@ -20,12 +21,12 @@ function initMap() {
     scrollwheel: false,
     zoom: 15
   });
-
   buildMarkers(restaurants);
 }
 
 function buildMarkers(markerList) {
-  clearScreen(); //clear markers on page here
+// Builds the markers on the map
+  clearScreen();
   var cfIcon = 'img/cfIcon.png';
   var cfmarker = new google.maps.Marker({
     map: map,
@@ -33,13 +34,22 @@ function buildMarkers(markerList) {
     position: cfLoc,
     title: 'Code Fellows'
   });
-  //make markers from list of restaurants
-  for (var i = 0; i < markerList.length; i++) {
-    createMarker(markerList[i].name, markerList[i].address);
+//This is convoluted looking, but basically creates a delay for geocode to work correctly
+  var l = 0;
+  function markerLoop(markerList) {
+    setTimeout(function() {
+      createMarker(markerList[l].name, markerList[l].address);
+      if (l < markerList.length) {
+        markerLoop(markerList);
+        l++;
+      }
+    }, 200);
   }
+  markerLoop(markerList);
 }
 
 function createMarker(name, address) {
+// Builds one marker
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -59,13 +69,14 @@ function createMarker(name, address) {
           infowindow.open(map, marker);
         });
       } else {
-        alert('No results found');
+        alert('Location not found.');
       }
     }
   });
 }
 
 function clearScreen() {
+// Clears markers from map
   for (var i = 0; i < markers.length; i++ ) {
     markers[i].setMap(null);
   }
@@ -172,7 +183,7 @@ function initializeData() {
     restaurants = JSON.parse(localStorage.eatFellows);
     console.log('localStorage for eatFellows exists.');
   } else {
-    restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, dripCity, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
+    restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
     console.log('localStorage for eatFellows not found, original dataset loaded.');
   }
   updateTypes();
