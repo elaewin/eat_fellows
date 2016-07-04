@@ -5,6 +5,11 @@ var geocoder;  //used for addy lookup, see test repo
 var typesOfFood = [];   //list which is generated to contain a list of every food category
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 
+var typeList = [];  //Array of Restaurant objs that meet search criteria
+var costList = [];
+var ratingList = [];
+var codeList = [];
+
 //++-------------++
 //++ Google maps ++
 function initMap() {
@@ -24,6 +29,11 @@ function initMap() {
     position: cfLoc,
     title: 'Code Fellows'
   });
+}
+
+function buildMarkers(markerList) {
+  //clear markers on page
+  //build markers from the list
 }
 
 //++----------++
@@ -73,6 +83,50 @@ function sortByType(objList, type) {
   }
   return tmp;
 }
+//++-------------++
+// ++ event functions for search ++
+// input: value from webpage sorting elements after they change
+// output: updated matching array
+function typeClick(type) {
+  if (type) {
+    typeList = sortByType(restaurants, type);
+    updateResults();
+  }
+}
+
+function costClick(cost) {
+  if (cost) {
+    costList = sortByMaxCost(restaurants, cost);
+    updateResults();
+  }
+}
+
+function ratingClick(rating) {
+  if (rating) {
+    ratingList = sortByMinRating(restaurants, rating);
+    updateResults();
+  }
+}
+
+function codeClick(code) {
+  if (code) {
+    codeList = sortByCode(restaurants, code);
+    updateResults();
+  }
+}
+
+function updateResults() {
+// updates the results and then loc markers after search item chosen
+  var results = [];
+  for (var i = 0; i < typeList.length; i++) {
+    if (costList.indexOf(typeList[i]) != -1 && ratingList.indexOf(typeList[i]) != -1 && codeList.indexOf(typeList[i]) != -1) {
+      results.push(typeList[i]);
+    }
+  }
+  console.log(results);
+  buildMarkers(results);
+}
+//put eventListeners right in here --
 
 //++-------------------------++
 // ++ Program Flow Functions ++
@@ -86,10 +140,14 @@ function initializeData() {
     console.log('localStorage for eatFellows not found, original dataset loaded.');
   }
   updateTypes();
+  typeList = restaurants;
+  costList = restaurants;
+  ratingList = restaurants;
+  codeList = restaurants;
 }
 
 function updateTypes() {
-// updates the types of food list for the website for ppl to sort with
+// updates the types of food list for the website <options> for ppl to sort with
   for (var i = 0; i < restaurants.length; i++) {
     for (var j = 0; j < restaurants[i].type.length; j++) {
       if (typesOfFood.indexOf(restaurants[i].type[j]) === -1) { //if not in list, append it
