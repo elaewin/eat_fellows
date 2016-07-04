@@ -39,25 +39,23 @@ function getAverage(ObjsToAvg, property) {
   }
 }
 
-var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street', ['American', 'Breakfast'], false);
-var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave', ['Sandwich', 'Mexican', 'Breakfast'], true);
-var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave', ['Coffee'], false);
-var dripCity = new Restaurant('Drip City', '2929 1st Ave S', ['Coffee'], false);
-var modPizza = new Restaurant('Mod Pizza', '305 Harrison St.', ['Pizza'], true);
-var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St.', ['Healthy', 'Salad'], true);
-var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St.', ['Pies', 'American'], false);
-var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St.', ['American', 'Seafood'], false);
-var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N', ['American', 'Pizza'], false);
-var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave', ['Coffee'], false);
-var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street', ['Mexican'], true);
-var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave', ['Thai', 'Asian'], false);
-var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way', ['Coffee'], false);
-var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave', ['Coffee', 'Sandwich', 'Asian'], false);
+var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street, Seattle, WA', ['American', 'Breakfast'], false);
+var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave, Seattle, WA', ['Sandwich', 'Mexican', 'Breakfast'], true);
+var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave, Seattle, WA', ['Coffee'], false);
+var modPizza = new Restaurant('Mod Pizza', '305 Harrison St., Seattle, WA', ['Pizza'], true);
+var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St., Seattle, WA', ['Healthy', 'Salad'], true);
+var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St., Seattle, WA', ['Pies', 'American'], false);
+var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St., Seattle, WA', ['American', 'Seafood'], false);
+var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N, Seattle, WA', ['American', 'Pizza'], false);
+var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave Seattle, WA', ['Coffee'], false);
+var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street Seattle, WA', ['Mexican'], true);
+var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave, Seattle, WA', ['Thai', 'Asian'], false);
+var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way Seattle, WA', ['Coffee'], false);
+var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave, Seattle, WA 98121', ['Coffee', 'Sandwich', 'Asian'], false);
 
 fivePointCafe.reviews = [fivept1, fivept2];
 bangBangCafe.reviews = [bang1];
 cherryStCoffee.reviews = [cherry1];
-dripCity.reviews = [drip1];
 modPizza.reviews = [mod1];
 plumPantry.reviews = [plum1, plum2];
 premMeatPies.reviews = [meat1];

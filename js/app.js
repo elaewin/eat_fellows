@@ -1,39 +1,86 @@
 'use strict';
 // ++ Global Variables ++
-var map;  //google map object
-var geocoder;  //used for addy lookup, see test repo
 var typesOfFood = [];   //list which is generated to contain a list of every food category
-var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 
-var typeList = [];  //Array of Restaurant objs that meet search criteria
-var costList = [];
+var typeList = [];  //Array of Restaurant objs that meet search criteria by type
+var costList = [];  // Same for cost..etc.
 var ratingList = [];
 var codeList = [];
+
+var map;  //google map object
+var geocoder;  //used for addy lookup, see test repo
+var markers = []; //Array of all markers for the map
+var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 
 //++-------------++
 //++ Google maps ++
 function initMap() {
 // this func is called in the google link in the HTML, we don't need to call it in main()
-  geocoder = new google.maps.Geocoder();
-  var cfIcon = 'img/cfIcon.png';
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: cfLoc,
     scrollwheel: false,
-    zoom: 16
+    zoom: 15
   });
+  buildMarkers(restaurants);
+}
 
-  var marker = new google.maps.Marker({
+function buildMarkers(markerList) {
+// Builds the markers on the map
+  clearScreen();
+  var cfIcon = 'img/cfIcon.png';
+  var cfmarker = new google.maps.Marker({
     map: map,
     icon: cfIcon, //custom icon for CF
     position: cfLoc,
     title: 'Code Fellows'
   });
+//This is convoluted looking, but basically creates a delay for geocode to work correctly
+  var l = 0;
+  function markerLoop(markerList) {
+    setTimeout(function() {
+      createMarker(markerList[l].name, markerList[l].address);
+      if (l < markerList.length) {
+        markerLoop(markerList);
+        l++;
+      }
+    }, 200);
+  }
+  markerLoop(markerList);
 }
 
-function buildMarkers(markerList) {
-  //clear markers on page
-  //build markers from the list
+function createMarker(name, address) {
+// Builds one marker
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+        var infowindow = new google.maps.InfoWindow(
+             { content: name + ' at ' + address,
+               size: new google.maps.Size(150,50)
+             });
+
+        var marker = new google.maps.Marker({
+          position: results[0].geometry.location,
+          map: map,
+          title: name
+        });
+        markers.push(marker);
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
+      } else {
+        alert('Location not found.');
+      }
+    }
+  });
+}
+
+function clearScreen() {
+// Clears markers from map
+  for (var i = 0; i < markers.length; i++ ) {
+    markers[i].setMap(null);
+  }
+  markers.length = 0;
 }
 
 //++----------++
@@ -126,8 +173,10 @@ function updateResults() {
   console.log(results);
   buildMarkers(results);
 }
-//put eventListeners right in here --
+function listenForEvents() {
+// put eventListeners right in here --
 
+}
 //++-------------------------++
 // ++ Program Flow Functions ++
 function initializeData() {
@@ -136,7 +185,7 @@ function initializeData() {
     restaurants = JSON.parse(localStorage.eatFellows);
     console.log('localStorage for eatFellows exists.');
   } else {
-    restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, dripCity, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
+    restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
     console.log('localStorage for eatFellows not found, original dataset loaded.');
   }
   updateTypes();
@@ -183,6 +232,7 @@ function addTestRestaurant(name, types) {
 function main() {
 // main program loop - step by step of program - should only be funcs in here
   initializeData();
+  initMap();
 }
 
 main();
