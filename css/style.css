@@ -1,6 +1,6 @@
-* {
+/** {
   outline: 1px dashed blue;
-}
+}*/
 
 /* BASE STYLES */
 
@@ -48,6 +48,7 @@ h4 {
   width: 500px;
   display:block;
   margin: 30px auto;
+  color: black;
 }
 
 header div {

@@ -4,36 +4,72 @@ var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
 var typesOfFood = [];   //list which is generated to contain a list of every food category
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
-
+var restaurants = [];
 var typeList = [];  //Array of Restaurant objs that meet search criteria
 var costList = [];
 var ratingList = [];
 var codeList = [];
+var markers = []; //Array of all markers for the map
 
 //++-------------++
 //++ Google maps ++
 function initMap() {
 // this func is called in the google link in the HTML, we don't need to call it in main()
-  geocoder = new google.maps.Geocoder();
-  var cfIcon = 'img/cfIcon.png';
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: cfLoc,
     scrollwheel: false,
-    zoom: 16
+    zoom: 15
   });
 
-  var marker = new google.maps.Marker({
+  buildMarkers(restaurants);
+}
+
+function buildMarkers(markerList) {
+  clearScreen(); //clear markers on page here
+  var cfIcon = 'img/cfIcon.png';
+  var cfmarker = new google.maps.Marker({
     map: map,
     icon: cfIcon, //custom icon for CF
     position: cfLoc,
     title: 'Code Fellows'
   });
+  //make markers from list of restaurants
+  for (var i = 0; i < markerList.length; i++) {
+    createMarker(markerList[i].name, markerList[i].address);
+  }
 }
 
-function buildMarkers(markerList) {
-  //clear markers on page
-  //build markers from the list
+function createMarker(name, address) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+        var infowindow = new google.maps.InfoWindow(
+             { content: name + ' at ' + address,
+               size: new google.maps.Size(150,50)
+             });
+
+        var marker = new google.maps.Marker({
+          position: results[0].geometry.location,
+          map: map,
+          title: name
+        });
+        markers.push(marker);
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
+      } else {
+        alert('No results found');
+      }
+    }
+  });
+}
+
+function clearScreen() {
+  for (var i = 0; i < markers.length; i++ ) {
+    markers[i].setMap(null);
+  }
+  markers.length = 0;
 }
 
 //++----------++
@@ -183,6 +219,7 @@ function addTestRestaurant(name, types) {
 function main() {
 // main program loop - step by step of program - should only be funcs in here
   initializeData();
+  initMap();
 }
 
 main();
