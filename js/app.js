@@ -233,6 +233,7 @@ function main() {
 // main program loop - step by step of program - should only be funcs in here
   initializeData();
   initMap();
+  listenForEvents();
 }
 
 main();
