@@ -1,8 +1,12 @@
-* {
+/** {
   outline: 1px dashed blue;
-}
+}*/
 
 /* BASE STYLES */
+
+.clearfix {
+  clear: both;
+}
 
 body {
   background-color: #4d4d4d;
