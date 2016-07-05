@@ -7,6 +7,9 @@ var costList = [];  // Same for cost..etc.
 var ratingList = [];
 var codeList = [];
 
+var typeBox = document.getElementById('type_dd');
+var costBox = document.getElementById('cost_dd');
+
 var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
@@ -150,8 +153,9 @@ function typeClick(type) {
 
 function costClick(cost) {
   if (cost) {
-    costList = sortByMaxCost(restaurants, cost);
+    costList = sortByMaxCost(restaurants, cost.toString());
     updateResults();
+    console.log(costBox.value);
   }
 }
 
@@ -183,7 +187,13 @@ function updateResults() {
 
 function listenForEvents() {
 // put eventListeners right in here --
-  toggler('flyout', 'flyout_label', 'active');
+  toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
+  costBox.addEventListener('change', function() {
+    costClick(costBox.value);
+  }, false);
+  typeBox.addEventListener('change', function() {
+    typeClick(typeBox.value);
+  }, false);
 }
 
 var handleRestSelect = function(name) {
@@ -223,6 +233,10 @@ function updateTypes() {
     }
   }
   // buildElements here
+  for (var i = 0; i < typesOfFood.length; i++) {
+    var el = buildElement('option', typesOfFood[i], typeBox, true);
+    el.setAttribute('value', typesOfFood[i]);
+  }
 }
 
 function buildElement(elType, content, parentNode, returnVal) {
