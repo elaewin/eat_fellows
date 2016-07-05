@@ -6,6 +6,7 @@ var type = document.getElementById('loc_type');
 var cost = document.getElementById('loc_cost');
 var rating = document.getElementById('loc_rating');
 var gfc = document.getElementById('loc_gfc');
+var userReviews = document.getElementById('user_reviews');
 var details = document.getElementById('details');
 var restList = document.getElementById('rest_list');
 
