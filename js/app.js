@@ -9,6 +9,8 @@ var codeList = [];
 
 var typeBox = document.getElementById('type_dd');
 var costBox = document.getElementById('cost_dd');
+var checkBox = document.getElementById('code_cb');
+
 
 var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
@@ -120,10 +122,15 @@ function sortByMinRating(objList, value) {
 
 function sortByCode(objList, goodToCode) {
   var tmp = [];
-  for (var i = 0; i < objList.length; i++) {
-    if (objList[i].goodToCode() === goodToCode) {
-      tmp.push(objList[i]);
+  if (goodToCode === true) {
+    console.log(goodToCode);
+    for (var i = 0; i < objList.length; i++) {
+      if (objList[i].goodToCode() === true) {
+        tmp.push(objList[i]);
+      }
     }
+  } else {
+    tmp = objList;
   }
   return tmp;
 }
@@ -167,10 +174,9 @@ function ratingClick(rating) {
 }
 
 function codeClick(code) {
-  if (code) {
-    codeList = sortByCode(restaurants, code);
-    updateResults();
-  }
+  console.log('checkbox clicked');
+  codeList = sortByCode(restaurants, code);
+  updateResults();
 }
 
 function updateResults() {
@@ -193,6 +199,9 @@ function listenForEvents() {
   }, false);
   typeBox.addEventListener('change', function() {
     typeClick(typeBox.value);
+  }, false);
+  checkBox.addEventListener('click', function() {
+    codeClick(checkBox.checked);
   }, false);
 }
 
