@@ -5,14 +5,11 @@ section {
 
 #details {
   margin: 30px 0;
+  /*visibility: hidden;*/
 }
 
 #details div {
   float: left;
-}
-
-#details li:last-child {
-  margin-right: 0;
 }
 
 #details p {
@@ -29,10 +26,16 @@ section {
   margin-bottom: 30px;
 }
 
+#reviews {
+  clear: both;
+  width: 960px;
+  margin: 30px 0;
+}
+
 section h3 {
   margin: 30px 0 15px;
 }
 
-#reviews {
-  margin: 30px 0;
+#rest_list {
+  visibility: hidden;
 }
