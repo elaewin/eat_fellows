@@ -4,7 +4,7 @@ section {
 }
 
 #details {
-  /*visibility: hidden;*/
+  display: none;
 }
 
 #details div {
@@ -44,5 +44,5 @@ section h3 {
 }
 
 #rest_list {
-  visibility: hidden;
+  display: none;
 }

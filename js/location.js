@@ -10,10 +10,14 @@ var ulEl = document.getElementById('user_reviews');
 var details = document.getElementById('details');
 var restList = document.getElementById('rest_list');
 
+// Checks if a restaurant is in local storage.
 function checkLocalStorage() {
   if(localStorage.storedSelection) {
+    details.style.display = 'block';
     selectedRest = JSON.parse(localStorage.storedSelection);
     console.log('restaurant found');
+  } else {
+    restList.style.display = 'block';
   }
 };
 
@@ -24,8 +28,8 @@ function buildElement(kind, content, where) {
   where.appendChild(x);
 }
 
-function loadDetails() {
-  // to load restaurant information into the DOM.
+// loads restaurant information into the DOM.
+var loadDetails = function() {
   if (selectedRest) {
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
@@ -38,6 +42,10 @@ function loadDetails() {
       buildElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
   }
+};
+
+var showAllRestaurants = function() {
+  
 };
 
 checkLocalStorage();
