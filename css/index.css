@@ -1,0 +1,49 @@
+/*This is for the flyout menu styling*/
+
+section {
+  z-index: 1;
+  position: fixed;
+  width: 35px;
+  height: 500px;
+  margin-top: 50px;
+  background: #19757E;
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+  transition: 450ms all;
+}
+
+span {
+  position: absolute;
+  display: block;
+  transform: rotate(-90deg);
+  left: -15px;
+  top: 65px;
+  font-family: helvetica;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #BBE1E5;
+}
+
+#select1 {
+  display: none;
+}
+
+#select1_label {
+  display: none;
+  color: #19757E;
+  margin: 10px;
+}
+
+form {
+  margin-left: 35px;
+}
+
+.visible {
+  display: block;
+}
+
+.active {
+  background: #BBE1E5;
+  width: 40%;
+}
