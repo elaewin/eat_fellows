@@ -59,6 +59,12 @@ function createMarker(name, address) {
                size: new google.maps.Size(150,50)
              });
 
+        var contentString = '<div id="tooltip">' + '<h4>' + name + '</h4>' + '<p>' + address + '</p>' + '<a href="location.html"><button>More Info</button></a>' + '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
         var marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
