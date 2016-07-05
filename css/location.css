@@ -5,7 +5,7 @@ section {
 
 #details {
   margin: 30px 0;
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 
 #details div {
