@@ -205,7 +205,19 @@ function updateTypes() {
       }
     }
   }
-  console.log('types of food updated');
+  // buildElements here
+}
+
+function buildElement(elType, content, parentNode, returnVal) {
+// Builds and HTML element, returnVal is boolean if you want element built returned
+  var tmp = document.createElement(elType);
+  if (content) {
+    tmp.textContent = content;
+  }
+  parentNode.appendChild(tmp);
+  if (returnVal) {
+    return tmp;
+  }
 }
 
 //++-------------------------------++
