@@ -43,6 +43,15 @@ h4 {
   font-size: 1em;
 }
 
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
 #map {
   height: 500px;
   width: 500px;
@@ -51,9 +60,18 @@ h4 {
   color: black;
 }
 
-header div {
+#header_container {
   width: 960px;
   margin: 0 auto;
+}
+
+#nav {
+  float: left;
+}
+
+#nav p {
+  font-size: 3.5em;
+  margin: 35px 0;
 }
 
 header h1 {
