@@ -32,6 +32,7 @@ select {
 
 .flyout_text {
   display: none;
+  font-family: helvetica;
   color: #19757E;
   margin: 10px;
 }
