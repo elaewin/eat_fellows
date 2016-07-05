@@ -5,7 +5,7 @@
 /* BASE STYLES */
 
 body {
-  background-color: #262626;
+  background-color: #4d4d4d;
   color: #fff;
   font-family: Georgia, serif;
   font-size: 16px;
@@ -20,6 +20,8 @@ header, footer {
 main {
   width: 960px;
   margin: 0 auto;
+  background-color: #262626;
+  padding-bottom: 30px;
 }
 
 h1, h2 {
@@ -82,7 +84,7 @@ header h1 {
 
 #description h4 {
   text-align: center;
-  margin: 10px 0;
+  padding: 10px 0;
 }
 
 footer {

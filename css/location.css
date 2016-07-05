@@ -4,7 +4,6 @@ section {
 }
 
 #details {
-  margin: 30px 0;
   /*visibility: hidden;*/
 }
 
@@ -15,15 +14,14 @@ section {
 #details p {
   font-family: "Source Code Pro", monospace;
   font-size: 1.25em;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #details img {
   display: block;
   float: left;
   width: 300px;
-  margin-right: 30px;
-  margin-bottom: 30px;
+  padding: 0 30px;
 }
 
 #reviews {
@@ -32,8 +30,12 @@ section {
   margin: 30px 0;
 }
 
+#reviews li {
+  padding: 0 30px;
+}
+
 section h3 {
-  margin: 30px 0 15px;
+  padding: 30px 30px 15px;
 }
 
 #rest_list {
