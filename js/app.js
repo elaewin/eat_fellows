@@ -11,7 +11,6 @@ var typeBox = document.getElementById('type_dd');
 var costBox = document.getElementById('cost_dd');
 var checkBox = document.getElementById('code_cb');
 
-
 var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
@@ -123,7 +122,6 @@ function sortByMinRating(objList, value) {
 function sortByCode(objList, goodToCode) {
   var tmp = [];
   if (goodToCode === true) {
-    console.log(goodToCode);
     for (var i = 0; i < objList.length; i++) {
       if (objList[i].goodToCode() === true) {
         tmp.push(objList[i]);
@@ -187,7 +185,7 @@ function updateResults() {
       results.push(typeList[i]);
     }
   }
-  console.log(results);
+  map.setCenter(cfLoc);
   buildMarkers(results);
 }
 

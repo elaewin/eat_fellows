@@ -2,7 +2,7 @@
 
 section {
   z-index: 1;
-  position: fixed;
+  position: absolute;
   width: 35px;
   height: 500px;
   margin-top: 50px;
@@ -42,10 +42,16 @@ form {
 }
 
 .active {
-  background: #BBE1E5;
-  width: 40%;
+  background: rgba(187, 225, 229, .8);
+  width: 300px;
+}
+
+input[type=checkbox] {
+
 }
 
 #code_cb {
   display: none;
+  width: 25px;
+  height: 25px;
 }
