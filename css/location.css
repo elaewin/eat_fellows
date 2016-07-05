@@ -3,9 +3,12 @@ section {
   clear: both;
 }
 
+#details {
+  margin: 30px 0;
+}
+
 #details div {
   float: left;
-  margin-bottom: 30px;
 }
 
 #details li:last-child {
