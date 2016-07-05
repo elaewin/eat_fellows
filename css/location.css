@@ -1,6 +1,35 @@
 /* LOCATION PAGE SPECIFIC STYLES GO HERE! */
+section {
+  clear: both;
+}
 
 #details div {
-  margin: 30px;
-  width:
+  float: left;
+  margin-bottom: 30px;
+}
+
+#details li:last-child {
+  margin-right: 0;
+}
+
+#details p {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.25em;
+  margin-bottom: 20px;
+}
+
+#details img {
+  display: block;
+  float: left;
+  width: 300px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+section h3 {
+  margin: 30px 0 15px;
+}
+
+#reviews {
+  margin: 30px 0;
 }
