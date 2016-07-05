@@ -8,6 +8,7 @@ var rating = document.getElementById('loc_rating');
 var gfc = document.getElementById('loc_gfc');
 var ulEl = document.getElementById('user_reviews');
 var details = document.getElementById('details');
+var wholeList = document.getElementById('all_restaurants');
 var restList = document.getElementById('rest_list');
 
 // Checks if a restaurant is in local storage.
@@ -15,14 +16,14 @@ function checkLocalStorage() {
   if(localStorage.storedSelection) {
     details.style.display = 'block';
     selectedRest = JSON.parse(localStorage.storedSelection);
-    console.log('restaurant found');
   } else {
-    restList.style.display = 'block';
+    wholeList.style.display = 'block';
+    showAllRestaurants();
   }
 };
 
 // Builds an element and adds it to another element
-function buildElement(kind, content, where) {
+function buildNewElement(kind, content, where) {
   var x = document.createElement(kind);
   x.innerHTML = content;
   where.appendChild(x);
@@ -30,7 +31,7 @@ function buildElement(kind, content, where) {
 
 // loads restaurant information into the DOM.
 var loadDetails = function() {
-  if (selectedRest) {
+  if(selectedRest) {
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
     phone.textContent = selectedRest.phone;
@@ -39,13 +40,18 @@ var loadDetails = function() {
     cost.textContent = selectedRest.reviews[0].cost;
     gfc.textContent = selectedRest.reviews[0].code;
     for(var i = 0; i < selectedRest.reviews.length; i++) {
-      buildElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
+      buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
   }
 };
 
+// Displays all of the restaurants in the array as a formatted list.
 var showAllRestaurants = function() {
-  
+  var sorted = restaurants.sort();
+  restList.innerHTML = '';
+  for(var i = 0; i < restaurants.length; i++) {
+    buildNewElement('li', '<div class="tooltip"><h4>' + sorted[i].name + '</h4><p>' + sorted[i].address + '</p><p>' + sorted[i].phone + '</p><p>' + sorted[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
+  }
 };
 
 checkLocalStorage();

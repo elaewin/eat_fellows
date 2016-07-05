@@ -43,6 +43,16 @@ section h3 {
   padding: 30px 30px 15px;
 }
 
-#rest_list {
+#all_restaurants {
   display: none;
+}
+
+#all_restaurants ul {
+  padding-top: 30px;
+}
+
+#all_restaurants li {
+  float: left;
+  width: 450px;
+  padding: 0 0 30px 30px;
 }
