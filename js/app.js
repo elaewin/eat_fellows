@@ -38,12 +38,12 @@ function buildMarkers(markerList) {
   var l = 0;
   function markerLoop(markerList) {
     setTimeout(function() {
-      createMarker(markerList[l].name, markerList[l].address);
       if (l < markerList.length) {
+        createMarker(markerList[l].name, markerList[l].address);
         markerLoop(markerList);
         l++;
       }
-    }, 200);
+    }, 300);
   }
   markerLoop(markerList);
 }
@@ -173,9 +173,10 @@ function updateResults() {
   console.log(results);
   buildMarkers(results);
 }
+
 function listenForEvents() {
 // put eventListeners right in here --
-
+  toggler('flyout', 'flyout_label', 'active');
 }
 //++-------------------------++
 // ++ Program Flow Functions ++
@@ -232,7 +233,6 @@ function addTestRestaurant(name, types) {
 function main() {
 // main program loop - step by step of program - should only be funcs in here
   initializeData();
-  initMap();
   listenForEvents();
 }
 

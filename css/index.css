@@ -13,10 +13,11 @@ section {
 }
 
 span {
+  width: 150px;
   position: absolute;
   display: block;
   transform: rotate(-90deg);
-  left: -15px;
+  left: -55px;
   top: 65px;
   font-family: helvetica;
   font-size: 15px;
@@ -25,11 +26,11 @@ span {
   color: #BBE1E5;
 }
 
-#select1 {
+select {
   display: none;
 }
 
-#select1_label {
+.flyout_text {
   display: none;
   color: #19757E;
   margin: 10px;
@@ -39,11 +40,11 @@ form {
   margin-left: 35px;
 }
 
-.visible {
-  display: block;
-}
-
 .active {
   background: #BBE1E5;
   width: 40%;
+}
+
+#code_cb {
+  display: none;
 }
