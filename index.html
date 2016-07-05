@@ -18,11 +18,21 @@
       </div>
     </header>
     <main>
+      <!-- flyout menu -->
       <section id="flyout">
+          <span id="flyout_label">find food</span>
+          <form id="flyout_form">
+            <p class="flyout_text">Select yout type of food:</p>
+            <select id="type_dd"></select>
+            <p class="flyout_text">How cheap?</p>
+            <select id="cost_dd"></select>
+            <p class="flyout_text">Do you need a place to code?</p>
+            <input type="checkbox" id="code_cb"></input>
+          </form>
       </section>
-      <section id="description">
+      <div id="description">
         <h4>Food recommendations for the folks at Code Fellows Seattle!</h4>
-      </section>
+      </div>
       <div id="map"></div>
     </main>
     <footer>
@@ -32,6 +42,7 @@
     async defer></script>
 		<script src="js/reviews.js"></script>
     <script src="js/restaurants.js"></script>
+    <script src="js/flyout.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
