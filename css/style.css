@@ -1,6 +1,6 @@
-/** {
+* {
   outline: 1px dashed blue;
-}*/
+}
 
 /* BASE STYLES */
 
@@ -68,7 +68,7 @@ a:visited {
 }
 
 #nav {
-  float: left;
+  position: absolute;
 }
 
 #nav p {
