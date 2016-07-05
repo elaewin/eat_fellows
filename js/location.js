@@ -20,7 +20,7 @@ function checkLocalStorage() {
 // Builds an element and adds it to another element
 function buildElement(kind, content, where) {
   var x = document.createElement(kind);
-  x.textContent = content;
+  x.innerHTML = content;
   where.appendChild(x);
 }
 
@@ -34,9 +34,9 @@ function loadDetails() {
     rating.textContent = selectedRest.reviews[0].rating;
     cost.textContent = selectedRest.reviews[0].cost;
     gfc.textContent = selectedRest.reviews[0].code;
-    // for(var i = 0; i < selectedRest.reviews; i++) {
-    buildElement('li', '"' + selectedRest.reviews[0].comment + '"', ulEl);
-    // }
+    for(var i = 0; i < selectedRest.reviews.length; i++) {
+      buildElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
+    }
   }
 };
 

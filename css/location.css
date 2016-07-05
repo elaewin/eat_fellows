@@ -31,7 +31,12 @@ section {
 }
 
 #reviews li {
-  padding: 0 30px;
+  padding: 0 30px 30px;
+}
+
+#reviews p {
+  font-family: Georgia, serif;
+  font-size: 100%;
 }
 
 section h3 {
