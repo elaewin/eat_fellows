@@ -192,8 +192,6 @@ var handleRestSelect = function(name) {
       localStorage.storedSelection = JSON.stringify(restaurants[i]);
     }
   }
-  // go through list of rests, match name
-  // save rest info to local storage.
 };
 
 //++-------------------------++
