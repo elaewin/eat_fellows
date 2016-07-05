@@ -22,6 +22,52 @@ main {
   margin: 0 auto;
 }
 
+/*section tag reserved for flyout */
+section {
+  z-index: 1;
+  position: fixed;
+  height: 500px;
+  width: 35px;
+  margin-top: 50px;
+  background-color: #19757e;
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+  transition: 450ms all;
+}
+/*span tag reserved for flyout */
+span {
+  position: absolute;
+  display: block;
+  transform: rotate(-90deg);
+  width: 150px;
+  left: -55px;
+  top: 65px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #BBE1E5;
+}
+
+.flyout_text {
+  display: none;
+  margin: 10px
+  color: #19757E;
+}
+
+form {
+  margin-left: 35px;
+}
+
+.active {
+  background-color: #BBE1E5;
+  width: 40%;
+}
+
+/*select tag reserved for flyout */
+select {
+  display: none;
+}
+
 h1, h2 {
   font-family: "Monda", sans-serif;
   text-transform: uppercase;
