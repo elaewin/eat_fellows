@@ -72,6 +72,7 @@ function createMarker(name, address) {
         });
         markers.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
+          handleRestSelect(name);
           infowindow.open(map, marker);
         });
       } else {
@@ -183,6 +184,18 @@ function listenForEvents() {
 // put eventListeners right in here --
 
 }
+
+var handleRestSelect = function(name) {
+  for(var i = 0; i < restaurants.length; i++) {
+    if(restaurants[i].name === name) {
+      console.log('clicked on', restaurants[i].name);
+      localStorage.storedSelection = JSON.stringify(restaurants[i]);
+    }
+  }
+  // go through list of rests, match name
+  // save rest info to local storage.
+};
+
 //++-------------------------++
 // ++ Program Flow Functions ++
 function initializeData() {
