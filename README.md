@@ -14,6 +14,14 @@ Code Fellows logo from: https://www.switchup.org/bootcamps/code-fellows
 
 ## Team Process ##
 
+### Git Flow
+* All issues entered in Waffle.
+* Branchnames include issue number. [event listeners #22]
+* Sit down merge parties every morning and before leaving.
+* Merge party after < 5 PRs.
+* Git push in alpha order: David, Erica, Logan, Val.
+
+
 ### Using Waffle:
 
 * Put an 'M' in front of MVP issues, followed by the next issue #.
