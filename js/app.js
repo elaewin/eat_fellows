@@ -59,6 +59,12 @@ function createMarker(name, address) {
                size: new google.maps.Size(150,50)
              });
 
+        var contentString = '<div id="tooltip">' + '<h4>' + name + '</h4>' + '<p>' + address + '</p>' + '<a href="location.html"><button>More Info</button></a>' + '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
         var marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
@@ -66,6 +72,7 @@ function createMarker(name, address) {
         });
         markers.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
+          handleRestSelect(name);
           infowindow.open(map, marker);
         });
       } else {
@@ -178,6 +185,16 @@ function listenForEvents() {
 // put eventListeners right in here --
   toggler('flyout', 'flyout_label', 'active');
 }
+
+var handleRestSelect = function(name) {
+  for(var i = 0; i < restaurants.length; i++) {
+    if(restaurants[i].name === name) {
+      console.log('clicked on', restaurants[i].name);
+      localStorage.storedSelection = JSON.stringify(restaurants[i]);
+    }
+  }
+};
+
 //++-------------------------++
 // ++ Program Flow Functions ++
 function initializeData() {
