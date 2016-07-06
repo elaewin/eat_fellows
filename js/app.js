@@ -104,6 +104,24 @@ function clearScreen() {
 // The functions take the objList as a parameter so that later on we can implement multi-variable sorting using the second sort on a subset of [restaurants]
 // Multivar ex: newlist = sortByMaxCost(sortByType(restaurants, 'Coffee'), 1);
 // Each sort returns a list of Restaurant objects
+function sortByName(objList) {
+  var tmp = [];
+  var returnArray = [];
+  for (var i = 0; i < objList.length; i++) {
+    tmp.push(objList[i].name);
+  }
+  tmp.sort();
+  for (var j = 0; j < tmp.length; j++) {
+    for (var k = 0; k < objList.length; k++) {
+      if (tmp[j] === objList[k].name) {
+        returnArray.push(objList[k]);
+        break;
+      }
+    }
+  }
+  return returnArray;
+}
+
 function sortByMaxCost(objList, value) {
   var tmp = [];
   for (var i = 0; i < objList.length; i++) {
@@ -223,9 +241,11 @@ function initializeData() {
 // gets data from storage or dataset
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
+    restaurants = sortByName(restaurants);
     console.log('localStorage for eatFellows exists.');
   } else {
     restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
+    restaurants = sortByName(restaurants);
     console.log('localStorage for eatFellows not found, original dataset loaded.');
   }
   updateTypes();
