@@ -294,6 +294,7 @@ function updateTypes() {
   }
 }
 
+// ++ Useful funcs ++
 function buildElement(elType, content, parentNode, returnVal) {
 // Builds and HTML element, returnVal is boolean if you want element built returned
   var tmp = document.createElement(elType);
