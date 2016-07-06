@@ -1,4 +1,4 @@
-var selectedRest;
+var selectedRest = '';
 var restName = document.getElementById('loc_name');
 var picture = document.getElementById('loc_picture');
 var address = document.getElementById('loc_address');
@@ -11,6 +11,8 @@ var ulEl = document.getElementById('user_reviews');
 var details = document.getElementById('details');
 var wholeList = document.getElementById('all_restaurants');
 var restList = document.getElementById('rest_list');
+
+// Reviews form variables
 var uname_r = document.getElementById('username');
 var fave_r = document.getElementById('fav_item');
 var code_r = document.getElementById('code_check');
@@ -36,7 +38,7 @@ function addNewReview(restname, username, faveDish, code, cost, rating, comment)
 }
 
 // Checks if a restaurant is in local storage.
-function checkLocalStorage() {
+var checkLocalStorage = function() {
   if(localStorage.storedSelection) {
     details.style.display = 'block';
     reviews.style.display = 'block';
@@ -62,12 +64,15 @@ function checkLocalStorage() {
   }
 };
 
-// Builds an element and adds it to another element
-function buildNewElement(kind, content, where) {
+// Builds an element and adds it to another element, attribute optional
+var buildNewElement = function(kind, content, where, attName, attValue) {
   var x = document.createElement(kind);
   x.innerHTML = content;
+  if(attName && attValue) {
+    x.setAttribute(attName, attValue);
+  }
   where.appendChild(x);
-}
+};
 
 // loads restaurant information into the DOM.
 var loadDetails = function() {
@@ -98,9 +103,20 @@ var loadDetails = function() {
 var showAllRestaurants = function() {
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
-    buildNewElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
+    buildNewElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button name="' + restaurants[i].name + '">Read Reviews</button></a></div>', restList);
   }
 };
+
+// Add a selected restaurant to local storage and update the page
+var handleNewRest = function(event) {
+  var clicked = event.target.name;
+  console.log('clicked on:', clicked);
+  handleRestSelect(clicked);
+  main();
+};
+
+// Event listener to display a particular restaurant
+wholeList.addEventListener('click', handleNewRest);
 
 function matchSelectedRestwithObj(selection) {
   for (var i = 0; i < restaurants.length; i++) {
@@ -125,6 +141,10 @@ function setupListener() {
   });
 }
 
-checkLocalStorage();
-loadDetails();
-setupListener();
+function main() {
+  checkLocalStorage();
+  loadDetails();
+  setupListener();
+}
+
+main();
