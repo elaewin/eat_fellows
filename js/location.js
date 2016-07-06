@@ -75,4 +75,3 @@ var showAllRestaurants = function() {
 
 checkLocalStorage();
 loadDetails();
-makeImages();
