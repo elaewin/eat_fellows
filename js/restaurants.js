@@ -40,19 +40,19 @@ function getAverage(ObjsToAvg, property) {
   }
 }
 
-var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street, Seattle, WA', '206-448-9991', ['American', 'Breakfast'], false);
-var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave, Seattle, WA', '206-448-2233', ['Sandwich', 'Mexican', 'Breakfast'], true);
-var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave, Seattle, WA', '206-812-1298', ['Coffee'], false);
-var modPizza = new Restaurant('Mod Pizza', '305 Harrison St., Seattle, WA', '206-428-6315', ['Pizza'], true);
-var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St., Seattle, WA', '206-428-6337', ['Healthy', 'Salad'], true);
-var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St., Seattle, WA', '206-428-6280', ['Pies', 'American'], false);
-var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St., Seattle, WA', '206-728-2228', ['American', 'Seafood'], false);
-var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N, Seattle, WA', '206-404-7767', ['American', 'Pizza'], false);
-var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave Seattle, WA', '206-708-6803', ['Coffee'], false);
-var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street Seattle, WA', '206-443-1000', ['Mexican'], true);
-var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave, Seattle, WA', '206-441-4348', ['Thai', 'Asian'], false);
-var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way Seattle, WA', '206-770-7777', ['Coffee'], false);
-var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave, Seattle, WA 98121', '206-441-2967', ['Coffee', 'Sandwich', 'Asian'], false);
+var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street, Seattle, WA', '206-448-9991', ['american', 'breakfast'], false);
+var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave, Seattle, WA', '206-448-2233', ['sandwich', 'mexican', 'breakfast'], true);
+var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave, Seattle, WA', '206-812-1298', ['coffee'], false);
+var modPizza = new Restaurant('Mod Pizza', '305 Harrison St., Seattle, WA', '206-428-6315', ['pizza'], true);
+var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St., Seattle, WA', '206-428-6337', ['healthy', 'salad'], true);
+var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St., Seattle, WA', '206-428-6280', ['pies', 'american'], false);
+var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St., Seattle, WA', '206-728-2228', ['american', 'seafood'], false);
+var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N, Seattle, WA', '206-404-7767', ['american', 'pizza'], false);
+var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave Seattle, WA', '206-708-6803', ['coffee'], false);
+var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street Seattle, WA', '206-443-1000', ['mexican'], true);
+var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave, Seattle, WA', '206-441-4348', ['thai', 'asian'], false);
+var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way Seattle, WA', '206-770-7777', ['coffee'], false);
+var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave, Seattle, WA 98121', '206-441-2967', ['coffee', 'sandwich', 'asian'], false);
 
 fivePointCafe.reviews = [fivept1, fivept2];
 bangBangCafe.reviews = [bang1];

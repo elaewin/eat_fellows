@@ -1,4 +1,4 @@
-var selectedRest = '';
+var selectedRest;
 var restName = document.getElementById('loc_name');
 var address = document.getElementById('loc_address');
 var phone = document.getElementById('loc_phone');
@@ -16,6 +16,21 @@ function checkLocalStorage() {
   if(localStorage.storedSelection) {
     details.style.display = 'block';
     selectedRest = JSON.parse(localStorage.storedSelection);
+    //re-attach lost methods from JSON strip
+    selectedRest.avgRating = function() {
+      return getAverage(this.reviews, 'rating');
+    };
+    selectedRest.avgCost = function() {
+      return getAverage(this.reviews, 'cost');
+    };
+    selectedRest.goodToCode = function() {
+      x = getAverage(this.reviews, 'code');
+      if (x >= 0.5) {
+        return true;
+      } else {
+        return false;
+      }
+    };
   } else {
     wholeList.style.display = 'block';
     showAllRestaurants();
@@ -39,9 +54,15 @@ var loadDetails = function() {
       buildNewElement('li', selectedRest.type[i], type);
     }
     // type.textContent = selectedRest.type;
-    rating.textContent = selectedRest.reviews[0].rating;
-    cost.textContent = selectedRest.reviews[0].cost;
-    gfc.textContent = selectedRest.reviews[0].code;
+    rating.textContent = selectedRest.avgRating();
+    cost.textContent = selectedRest.avgCost();
+    var tf = selectedRest.goodToCode();
+    if (tf) {
+      tf = 'Yes!';
+    } else {
+      tf = 'No :(';
+    }
+    gfc.textContent = tf;
     for(var i = 0; i < selectedRest.reviews.length; i++) {
       buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
