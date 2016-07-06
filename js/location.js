@@ -45,6 +45,7 @@ var loadDetails = function() {
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
     phone.textContent = selectedRest.phone;
+    picture.setAttribute('src', selectedRest.image);
     for(var i = 0; i < selectedRest.type.length; i++) {
       buildElement('li', selectedRest.type[i], type, false);
     }
@@ -69,12 +70,6 @@ var showAllRestaurants = function() {
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
     buildElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList, false);
-  }
-};
-
-var makeImages = function() {
-  for(var i = 0; i < restaurants.length; i++) {
-    picture.src = restaurants[i].image;
   }
 };
 
