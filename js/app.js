@@ -221,7 +221,7 @@ var handleRestSelect = function(name) {
 
 var removeStoredSelection = function() {
   if (localStorage.storedSelection) {
-    localStorage.removeItem('sharedStorage');
+    localStorage.removeItem('storedSelection');
   }
 };
 
