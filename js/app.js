@@ -161,7 +161,7 @@ function sortByType(objList, type) {
     for (var j = 0; j < objList.length; j++) {
       if (objList[i].type[j] === type) {
         tmp.push(objList[i]);
-        // break;
+        break;
       }
     }
   }
@@ -238,7 +238,7 @@ function initializeData() {
 // gets data from storage or dataset
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
-//re-attach methods
+// re-attach methods
     for (var i = 0; i < restaurants.length; i++) {
       restaurants[i].avgRating = function() {
         return getAverage(this.reviews, 'rating');
