@@ -15,6 +15,7 @@ var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
+var tooltips = []; //Array of infowindows to keep only 1 open
 
 //++-------------++
 //++ Google maps ++
@@ -58,10 +59,6 @@ function createMarker(name, address) {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-        var infowindow = new google.maps.InfoWindow(
-             { content: name + ' at ' + address,
-               size: new google.maps.Size(150,50)
-             });
 
         var contentString = '<div class="tooltip">' + '<h4>' + name + '</h4>' + '<p>' + address + '</p>' + '<a href="location.html"><button>More Info</button></a>' + '</div>';
 
@@ -76,8 +73,16 @@ function createMarker(name, address) {
         });
         markers.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
+          if (tooltips.length > 0) {  //closes previous infowindows open
+            tooltips.push(infowindow);
+            tooltips[0].close();
+            tooltips.splice(0,1);
+
+          } else {
+            tooltips.push(infowindow);
+          }
           handleRestSelect(name);
-          infowindow.open(map, marker);
+          tooltips[0].open(map, marker);
         });
       } else {
         alert('Location not found.');
