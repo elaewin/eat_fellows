@@ -17,7 +17,8 @@ body {
 }
 
 header, footer {
-  width: 100%;
+  width: 960px;
+  margin: 0 auto;
   background-color: #a51a13;
 }
 
