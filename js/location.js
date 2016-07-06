@@ -39,6 +39,13 @@ function checkLocalStorage() {
   }
 };
 
+// Builds an element and adds it to another element
+function buildNewElement(kind, content, where) {
+  var x = document.createElement(kind);
+  x.innerHTML = content;
+  where.appendChild(x);
+}
+
 // loads restaurant information into the DOM.
 var loadDetails = function() {
   if(selectedRest) {
@@ -47,7 +54,7 @@ var loadDetails = function() {
     phone.textContent = selectedRest.phone;
     picture.setAttribute('src', selectedRest.image);
     for(var i = 0; i < selectedRest.type.length; i++) {
-      buildElement('li', selectedRest.type[i], type, false);
+      buildNewElement('li', selectedRest.type[i], type);
     }
     // type.textContent = selectedRest.type;
     rating.textContent = selectedRest.avgRating();
@@ -60,7 +67,7 @@ var loadDetails = function() {
     }
     gfc.textContent = tf;
     for(var i = 0; i < selectedRest.reviews.length; i++) {
-      buildElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl, false);
+      buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
   }
 };
@@ -69,10 +76,9 @@ var loadDetails = function() {
 var showAllRestaurants = function() {
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
-    buildElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList, false);
+    buildNewElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
   }
 };
 
 checkLocalStorage();
 loadDetails();
-makeImages();
