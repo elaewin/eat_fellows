@@ -15,6 +15,7 @@ var map;  //google map object
 var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
+var tooltips = []; //Array of infowindows to keep only 1 open
 
 //++-------------++
 //++ Google maps ++
@@ -52,7 +53,6 @@ function buildMarkers(markerList) {
   markerLoop(markerList);
 }
 
-var tooltips = [];
 function createMarker(name, address) {
 // Builds one marker
   var geocoder = new google.maps.Geocoder();
