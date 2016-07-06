@@ -12,6 +12,21 @@ var details = document.getElementById('details');
 var wholeList = document.getElementById('all_restaurants');
 var restList = document.getElementById('rest_list');
 
+function addNewRest(name, address, phone, types, vegan, image) {
+// Add a new restaurant to the database
+  tmp = new Restaurant(name, address, phone, types, vegan, image);
+  restaurants.push(tmp);
+  restaurants = sortByName(restaurants);
+  localStorage.eatFellows = JSON.stringify(restaurants);
+}
+
+function addNewReview(restname, username, faveDish, code, cost, rating) {
+// Add a new review to a restaurant
+  newReview = new ReviewReview(username, faveDish, code, cost, rating);
+  restname.reviews.push(newReview);
+  localStorage.eatFellows = JSON.stringify(restaurants);
+}
+
 // Checks if a restaurant is in local storage.
 function checkLocalStorage() {
   if(localStorage.storedSelection) {
