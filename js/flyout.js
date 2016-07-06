@@ -31,11 +31,9 @@ function toggler(id1, label, state) {
     checkbox.style.display = 'none';
     typeDD.style.display = 'none';
     costDD.style.display = 'none';
+    text.style.display = 'block';
     for (var i = 0; i < labels.length; i++) {
       labels[i].style.display = 'none';
     }
-    setTimeout(function() {
-      text.style.display = 'block';
-    }, 450);
   });
 }
