@@ -1,5 +1,6 @@
 var selectedRest;
 var restName = document.getElementById('loc_name');
+var picture = document.getElementById('loc_picture');
 var address = document.getElementById('loc_address');
 var phone = document.getElementById('loc_phone');
 var type = document.getElementById('loc_type');
@@ -77,5 +78,12 @@ var showAllRestaurants = function() {
   }
 };
 
+var makeImages = function() {
+  for(var i = 0; i < restaurants.length; i++) {
+    picture.src = restaurants[i].image;
+  }
+};
+
 checkLocalStorage();
 loadDetails();
+makeImages();
