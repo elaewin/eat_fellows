@@ -25,7 +25,8 @@ User can:
 ###User Tasks:
   a. You are hungry for lunch. Find a place to eat.
   b. Find a place to drink coffee and code.
-  c. Submit your own recommendation for a place to eat.
+  c. Find a place you've been to and submit a review.
+  d. Two mockups - which is better.
 
 ###Measurements:
 * speed of task completion
