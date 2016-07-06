@@ -20,6 +20,17 @@ form {
   text-align: center;
 }
 
+@keyframes hideDiv {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.hide {
+  animation-name: hideDiv;
+  animation-duration: 700ms;
+  opacity: 0;
+}
+
 #details {
   display: none;
 }
