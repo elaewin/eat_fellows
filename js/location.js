@@ -35,7 +35,10 @@ var loadDetails = function() {
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
     phone.textContent = selectedRest.phone;
-    type.textContent = selectedRest.type;
+    for(var i = 0; i < selectedRest.type.length; i++) {
+      buildNewElement('li', selectedRest.type[i], type);
+    }
+    // type.textContent = selectedRest.type;
     rating.textContent = selectedRest.reviews[0].rating;
     cost.textContent = selectedRest.reviews[0].cost;
     gfc.textContent = selectedRest.reviews[0].code;
