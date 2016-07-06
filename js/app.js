@@ -259,11 +259,12 @@ function updateTypes() {
 // updates the types of food list for the website <options> for ppl to sort with
   for (var i = 0; i < restaurants.length; i++) {
     for (var j = 0; j < restaurants[i].type.length; j++) {
-      if (typesOfFood.indexOf(restaurants[i].type[j]) === -1) { //if not in list, append it
-        typesOfFood.push(restaurants[i].type[j]);
-      }
+      if (typesOfFood.indexOf(restaurants[i].type[j].toLowerCase()) === -1) { //if not in list, append it
+        typesOfFood.push(restaurants[i].type[j].toLowerCase());
+      } //toLowerCase so that there wont be Thai and thai after new restaurant added
     }
   }
+  typesOfFood.sort();
   // buildElements here
   for (var i = 0; i < typesOfFood.length; i++) {
     var el = buildElement('option', typesOfFood[i], typeBox, true);
