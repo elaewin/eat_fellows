@@ -238,6 +238,23 @@ function initializeData() {
 // gets data from storage or dataset
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
+//re-attach methods
+    for (var i = 0; i < restaurants.length; i++) {
+      restaurants[i].avgRating = function() {
+        return getAverage(this.reviews, 'rating');
+      };
+      restaurants[i].avgCost = function() {
+        return getAverage(this.reviews, 'cost');
+      };
+      restaurants[i].goodToCode = function() {
+        x = getAverage(this.reviews, 'code');
+        if (x >= 0.5) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+    }
     console.log('localStorage for eatFellows exists.');
   } else {
     restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
