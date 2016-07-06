@@ -50,7 +50,7 @@ section h3 {
 }
 
 #reviews {
-  clear: both;
+  display: none;
   width: 960px;
   margin: 30px 0;
 }
@@ -80,6 +80,10 @@ section h3 {
 
 #all_restaurants li {
   float: left;
-  width: 450px;
-  padding: 0 0 30px 30px;
+  width: 410px;
+  padding: 0 0 30px 60px;
+}
+
+#all_restaurants li h4 {
+  color: #cf2f26;
 }

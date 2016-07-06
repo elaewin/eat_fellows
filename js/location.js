@@ -15,6 +15,7 @@ var restList = document.getElementById('rest_list');
 function checkLocalStorage() {
   if(localStorage.storedSelection) {
     details.style.display = 'block';
+    reviews.style.display = 'block';
     selectedRest = JSON.parse(localStorage.storedSelection);
     //re-attach lost methods from JSON strip
     selectedRest.avgRating = function() {
@@ -73,7 +74,7 @@ var loadDetails = function() {
 var showAllRestaurants = function() {
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
-    buildNewElement('li', '<div class="tooltip"><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
+    buildNewElement('li', '<div><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
   }
 };
 
