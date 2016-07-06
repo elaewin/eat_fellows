@@ -168,9 +168,9 @@ function sortByType(objList, type) {
   return tmp;
 }
 //++-------------++
-// ++ event functions for search ++
+// ++ event handlers for search ++
 // input: value from webpage sorting elements after they change
-// output: updated matching array
+// output: updated matching array (no return)
 function typeClick(type) {
   if (type) {
     typeList = sortByType(restaurants, type);
@@ -180,9 +180,8 @@ function typeClick(type) {
 
 function costClick(cost) {
   if (cost) {
-    costList = sortByMaxCost(restaurants, cost.toString());
+    costList = sortByMaxCost(restaurants, cost);
     updateResults();
-    console.log(costBox.value);
   }
 }
 
@@ -194,7 +193,6 @@ function ratingClick(rating) {
 }
 
 function codeClick(code) {
-  console.log('checkbox clicked');
   codeList = sortByCode(restaurants, code);
   updateResults();
 }
@@ -211,8 +209,17 @@ function updateResults() {
   buildMarkers(results);
 }
 
+var handleRestSelect = function(name) {
+  for(var i = 0; i < restaurants.length; i++) {
+    if(restaurants[i].name === name) {
+      console.log('clicked on', restaurants[i].name);
+      localStorage.storedSelection = JSON.stringify(restaurants[i]);
+    }
+  }
+};
+
 function listenForEvents() {
-// put eventListeners right in here --
+// search event listeners
   toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
   costBox.addEventListener('change', function() {
     costClick(costBox.value);
@@ -224,15 +231,6 @@ function listenForEvents() {
     codeClick(checkBox.checked);
   }, false);
 }
-
-var handleRestSelect = function(name) {
-  for(var i = 0; i < restaurants.length; i++) {
-    if(restaurants[i].name === name) {
-      console.log('clicked on', restaurants[i].name);
-      localStorage.storedSelection = JSON.stringify(restaurants[i]);
-    }
-  }
-};
 
 //++-------------------------++
 // ++ Program Flow Functions ++
