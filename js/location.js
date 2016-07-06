@@ -1,4 +1,4 @@
-var selectedRest;
+var selectedRest = '';
 var restName = document.getElementById('loc_name');
 var picture = document.getElementById('loc_picture');
 var address = document.getElementById('loc_address');
@@ -12,6 +12,16 @@ var details = document.getElementById('details');
 var wholeList = document.getElementById('all_restaurants');
 var restList = document.getElementById('rest_list');
 
+// Reviews form variables
+var uname_r = document.getElementById('username');
+var fave_r = document.getElementById('fav_item');
+var code_r = document.getElementById('code_check');
+var cost_r = document.getElementById('cost_drp');
+var rate_r = document.getElementById('rating_drp');
+var comments_r = document.getElementById('review');
+var submit = document.getElementById('submitReviewBtn');
+var divAddNew = document.getElementById('add_new_review');
+
 function addNewRest(name, address, phone, types, vegan, image) {
 // Add a new restaurant to the database
   tmp = new Restaurant(name, address, phone, types, vegan, image);
@@ -20,9 +30,9 @@ function addNewRest(name, address, phone, types, vegan, image) {
   localStorage.eatFellows = JSON.stringify(restaurants);
 }
 
-function addNewReview(restname, username, faveDish, code, cost, rating) {
+function addNewReview(restname, username, faveDish, code, cost, rating, comment) {
 // Add a new review to a restaurant
-  newReview = new Review(username, faveDish, code, cost, rating);
+  newReview = new Review(username, faveDish, code, cost, rating, comment);
   matchSelectedRestwithObj(restname).reviews.push(newReview);
   localStorage.eatFellows = JSON.stringify(restaurants);
 }
@@ -74,7 +84,6 @@ var loadDetails = function() {
     for(var i = 0; i < selectedRest.type.length; i++) {
       buildNewElement('li', selectedRest.type[i], type);
     }
-    // type.textContent = selectedRest.type;
     rating.textContent = selectedRest.avgRating();
     cost.textContent = selectedRest.avgCost();
     var tf = selectedRest.goodToCode();
@@ -111,26 +120,20 @@ wholeList.addEventListener('click', handleNewRest);
 
 function matchSelectedRestwithObj(selection) {
   for (var i = 0; i < restaurants.length; i++) {
-    if (selection.name === restaurants[i].name) {
+    if (selection === restaurants[i].name) {
       return restaurants[i];
     } else {
       console.log('no match found.');
     }
   }
 }
-var uname_r = document.getElementById('username');
-var fave_r = document.getElementById('fav_item');
-var code_r = document.getElementById('code_check');
-var cost_r = document.getElementById('cost_drp');
-var rate_r = document.getElementById('rating_drp');
-var submit = document.getElementById('submitReviewBtn');
 
 function setupListener() {
   submit.addEventListener('click', function(e) {
     e.preventDefault();
-    if (selectedRest && uname_r.value && fave_r.value && cost_r.value && rate_r.value) {
-      restname = selectedRest;
-      addNewReview(restname, uname_r, fave_r, code_r, cost_r, rate_r);
+    if (selectedRest && uname_r.value && fave_r.value && cost_r.value && rate_r.value && comments_r.value) {
+      addNewReview(selectedRest.name, uname_r.value, fave_r.value, code_r.value, cost_r.value, rate_r.value, comments_r.value);
+      divAddNew.setAttribute('class', 'hide');
     } else {
       alert('Enter all fields.');
       return null;

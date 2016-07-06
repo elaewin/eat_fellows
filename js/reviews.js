@@ -1,10 +1,10 @@
-function Review(name, faveDish, code, cost, rating) {
+function Review(name, faveDish, code, cost, rating, comment) {
   this.name = name; //name of reviewer
   this.faveDish = faveDish;
   this.code = code; //Good place to code?  0->no, 1->yes (so we can avg)
   this.cost = cost; // 1: <=$8, 2: $8-$12,  3: >$12
   this.rating = rating; // 1 to 5, 5 is awesome
-  this.comment = '';
+  this.comment = comment;
 }
 
 var fivept1 = new Review('Kris Skelton', 'Happy Hour Burger', 0, 3, 4);

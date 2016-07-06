@@ -15,6 +15,25 @@ section h3 {
   border-bottom: 1px solid #4d4d4d;
 }
 
+<<<<<<< HEAD
+form {
+  align-content: center;
+  text-align: center;
+}
+
+@keyframes hideDiv {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.hide {
+  animation-name: hideDiv;
+  animation-duration: 700ms;
+  opacity: 0;
+}
+
+=======
+>>>>>>> master
 #details {
   display: none;
 }
