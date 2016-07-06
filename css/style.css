@@ -30,6 +30,9 @@ main {
 
 h1, h2 {
   font-family: "Monda", sans-serif;
+}
+
+h1 {
   text-transform: uppercase;
 }
 
