@@ -231,16 +231,19 @@ var removeStoredSelection = function() {
 
 // search event listeners
 function listenForEvents() {
-  toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
-  costBox.addEventListener('change', function() {
-    costClick(costBox.value);
-  }, false);
-  typeBox.addEventListener('change', function() {
-    typeClick(typeBox.value);
-  }, false);
-  checkBox.addEventListener('click', function() {
-    codeClick(checkBox.checked);
-  }, false);
+  try {
+    toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
+    costBox.addEventListener('change', function() {
+      costClick(costBox.value);
+    }, false);
+    typeBox.addEventListener('change', function() {
+      typeClick(typeBox.value);
+    }, false);
+    checkBox.addEventListener('click', function() {
+      codeClick(checkBox.checked);
+    }, false);
+  } catch(error) {
+  }
 }
 
 show_all.addEventListener('click', removeStoredSelection);
@@ -293,9 +296,11 @@ function updateTypes() {
   }
   typesOfFood.sort();
   // buildElements here
-  for (var i = 0; i < typesOfFood.length; i++) {
-    var el = buildElement('option', typesOfFood[i], typeBox, true);
-    el.setAttribute('value', typesOfFood[i]);
+  if (typeBox) {
+    for (var i = 0; i < typesOfFood.length; i++) {
+      var el = buildElement('option', typesOfFood[i], typeBox, true);
+      el.setAttribute('value', typesOfFood[i]);
+    }
   }
 }
 
@@ -343,7 +348,6 @@ function addTestRestaurant(name, types) {
   restaurants.push(tmp);
   updateTypes();
 }
-
 
 //++-------++
 // ++ Main ++

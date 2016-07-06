@@ -1,6 +1,5 @@
 // attribute to instructor Brian
 function toggler(id1, label, state) {
-  console.log('toggler called');
   // grab elements
   var container = document.getElementById(id1);
   var text = document.getElementById(label);
