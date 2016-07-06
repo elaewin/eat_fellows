@@ -76,7 +76,14 @@ var buildNewElement = function(kind, content, where, attName, attValue) {
 
 // loads restaurant information into the DOM.
 var loadDetails = function() {
+  var ratingGrades = ['Do Not Want.', 'Not Great', 'Alright.', 'Pretty Great.', 'This Joint Rocks!'];
+  var costGrades = ['Cheap!', 'Reasonable.', 'Pricey.'];
   if(selectedRest) {
+    type.innerHTML = '';
+    ulEl.innerHTML = '';
+    rating.textContent = '';
+    cost.textContent = '';
+
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
     phone.textContent = selectedRest.phone;
@@ -84,8 +91,10 @@ var loadDetails = function() {
     for(var i = 0; i < selectedRest.type.length; i++) {
       buildNewElement('li', selectedRest.type[i], type);
     }
-    rating.textContent = selectedRest.avgRating();
-    cost.textContent = selectedRest.avgCost();
+    x = parseInt(selectedRest.avgRating());
+    rating.textContent = ratingGrades[x - 1];
+    x = parseInt(Math.floor(selectedRest.avgCost()));
+    cost.textContent = costGrades[x - 1];
     var tf = selectedRest.goodToCode();
     if (tf) {
       tf = 'Yes!';
@@ -93,7 +102,6 @@ var loadDetails = function() {
       tf = 'No :(';
     }
     gfc.textContent = tf;
-    ulEl.innerHTML = '';
     for(var i = 0; i < selectedRest.reviews.length; i++) {
       buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
@@ -132,8 +140,8 @@ function matchSelectedRestwithObj(selection) {
 function setupListener() {
   submit.addEventListener('click', function(e) {
     e.preventDefault();
-    if (selectedRest && uname_r.value && fave_r.value && cost_r.value && rate_r.value && comments_r.value) {
-      addNewReview(selectedRest.name, uname_r.value, fave_r.value, code_r.value, cost_r.value, rate_r.value, comments_r.value);
+    if (selectedRest && uname_r.value && cost_r.value && rate_r.value && comments_r.value) {
+      addNewReview(selectedRest.name, uname_r.value, fave_r.value, parseInt(code_r.value), parseInt(cost_r.value), parseInt(rate_r.value), comments_r.value);
       handleRestSelect(selectedRest.name);
       divAddNew.setAttribute('class', 'hide');
       main();
