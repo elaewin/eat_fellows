@@ -1,5 +1,7 @@
 /*This is for the flyout menu styling*/
-
+* {
+  margin: 0;
+}
 section {
   z-index: 1;
   position: absolute;
