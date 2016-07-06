@@ -16,6 +16,7 @@ var markers = []; //Array of all markers for the map
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 var tooltips = []; //Array of infowindows to keep only 1 open
 
+var showAll = document.getElementById('show_all');
 //++-------------++
 //++ Google maps ++
 function initMap() {
@@ -218,6 +219,12 @@ var handleRestSelect = function(name) {
   }
 };
 
+var removeStoredSelection = function() {
+  if (localStorage.storedSelection) {
+    localStorage.removeItem('sharedStorage');
+  }
+};
+
 function listenForEvents() {
 // search event listeners
   toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
@@ -231,6 +238,8 @@ function listenForEvents() {
     codeClick(checkBox.checked);
   }, false);
 }
+
+show_all.addEventListener('click', removeStoredSelection);
 
 //++-------------------------++
 // ++ Program Flow Functions ++
@@ -300,6 +309,7 @@ function buildElement(elType, content, parentNode, returnVal) {
 
 function insertSubStr(index, str, substr) {
 // inserts a substring into str after index
+
   if (index > 0) {
     return str.slice(0, index) + substr + str.slice(index, str.length);
   }
@@ -328,6 +338,7 @@ function addTestRestaurant(name, types) {
   restaurants.push(tmp);
   updateTypes();
 }
+
 
 //++-------++
 // ++ Main ++
