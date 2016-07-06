@@ -15,9 +15,10 @@ function toggler(id1, label, state) {
     this.setAttribute('class', state);
     this.style.cursor = 'auto';
     form.style.display = 'block';
-    checkbox.style.display = 'inline';
+    checkbox.style.display = 'inline-block';
     typeDD.style.display = 'block';
     costDD.style.display = 'block';
+    text.style.display = 'none';
     for (var i = 0; i < labels.length; i++) {
       labels[i].style.display = 'block';
     }
@@ -33,5 +34,8 @@ function toggler(id1, label, state) {
     for (var i = 0; i < labels.length; i++) {
       labels[i].style.display = 'none';
     }
+    setTimeout(function() {
+      text.style.display = 'block';
+    }, 450);
   });
 }
