@@ -34,6 +34,34 @@
       <section id="reviews">
         <h3>Reviews</h3>
         <ul id="user_reviews"></ul>
+        <div id="add_new_review">
+          <h3>Have something to say about this place?</h3>
+          <form id="new_review">
+            Your name:&nbsp;<input type="text" name="username" id="username">
+            Favorite Item:&nbsp;<input type="text" name="fav_item" id="fav_item">
+            <br>
+            <h6>How is the price of a typical order?</h6>
+            <select id="cost_drp">
+              <option value=1>1 - cheap!</option>
+              <option value=2>2 - reasonable!</option>
+              <option value=3>3 - pricey!</option>
+            </select>
+            <h6>How would you rate this restaurant?</h6>
+            <select id="rating_drp">
+              <option value=1>1 - Do not want.</option>
+              <option value=2>2 - Not great.</option>
+              <option value=3>3 - Alright.</option>
+              <option value=4>4 - Pretty great.</option>
+              <option value=5>5 - I'm a fan!</option>
+            </select>
+            <br>
+            <label><input type="checkbox" id="code_check" class="custom_check">I'm looking for a place to code!</label>
+            <br>
+            Your review:&nbsp;
+            <br>
+            <textarea name="review" id="review" rows="8" cols="60"></textarea>
+          </form>
+        </div>
       </section>
       <div class="clearfix"></div>
       <section id="all_restaurants">
