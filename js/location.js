@@ -47,10 +47,9 @@ var loadDetails = function() {
 
 // Displays all of the restaurants in the array as a formatted list.
 var showAllRestaurants = function() {
-  var sorted = restaurants.sort();
   restList.innerHTML = '';
   for(var i = 0; i < restaurants.length; i++) {
-    buildNewElement('li', '<div class="tooltip"><h4>' + sorted[i].name + '</h4><p>' + sorted[i].address + '</p><p>' + sorted[i].phone + '</p><p>' + sorted[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
+    buildNewElement('li', '<div class="tooltip"><h4>' + restaurants[i].name + '</h4><p>' + restaurants[i].address + '</p><p>' + restaurants[i].phone + '</p><p>' + restaurants[i].type + '</p><a href="location.html"><button>More Info</button></a></div>', restList);
   }
 };
 
