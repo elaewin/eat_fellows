@@ -3,10 +3,10 @@
 section {
   z-index: 1;
   position: absolute;
-  width: 35px;
+  width: 41px;
   height: 500px;
   margin-top: 50px;
-  background: #19757E;
+  background: #cf2f26;
   cursor: pointer;
   border-radius: 0 10px 10px 0;
   transition: 450ms all;
@@ -18,12 +18,12 @@ span {
   display: block;
   transform: rotate(-90deg);
   left: -55px;
-  top: 65px;
-  font-family: helvetica;
-  font-size: 15px;
+  top: 80px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.25em;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #BBE1E5;
+  color: #fff;
 }
 
 select {
@@ -32,9 +32,10 @@ select {
 
 .flyout_text {
   display: none;
-  font-family: helvetica;
-  color: #19757E;
-  margin: 10px;
+  font-family: "Source Code Pro", monospace;
+  color: #fff;
+  /*margin: 10px;*/
+  padding: 30px 15px 10px 0;
 }
 
 form {
@@ -42,12 +43,12 @@ form {
 }
 
 .active {
-  background: rgba(187, 225, 229, .8);
+  background: rgba(207, 47, 38, .9);
   width: 300px;
 }
 
-input[type=checkbox] {
-
+#type_dd, #cost_dd {
+  margin-left: 7px;
 }
 
 #code_cb {

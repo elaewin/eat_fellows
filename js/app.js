@@ -144,7 +144,7 @@ function sortByType(objList, type) {
     for (var j = 0; j < objList.length; j++) {
       if (objList[i].type[j] === type) {
         tmp.push(objList[i]);
-        break;
+        // break;
       }
     }
   }
