@@ -12,7 +12,6 @@ var costBox = document.getElementById('cost_dd');
 var checkBox = document.getElementById('code_cb');
 
 var map;  //google map object
-var geocoder;  //used for addy lookup, see test repo
 var markers = []; //Array of all markers for the map
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 var tooltips = []; //Array of infowindows to keep only 1 open
@@ -45,8 +44,8 @@ function buildMarkers(markerList) {
     setTimeout(function() {
       if (l < markerList.length) {
         createMarker(markerList[l].name, markerList[l].address);
-        markerLoop(markerList);
         l++;
+        markerLoop(markerList);
       }
     }, 300);
   }
@@ -241,13 +240,12 @@ function initializeData() {
 // gets data from storage or dataset
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
-    restaurants = sortByName(restaurants);
     console.log('localStorage for eatFellows exists.');
   } else {
     restaurants = [fivePointCafe, bangBangCafe, cherryStCoffee, modPizza, plumPantry, premMeatPies, quincysBurg, sportBar, streetBean, tacoDelMar, thaiOnOne, uptownExpresso, worldClassCoffee];
-    restaurants = sortByName(restaurants);
     console.log('localStorage for eatFellows not found, original dataset loaded.');
   }
+  restaurants = sortByName(restaurants);
   updateTypes();
   typeList = restaurants;
   costList = restaurants;
@@ -259,11 +257,12 @@ function updateTypes() {
 // updates the types of food list for the website <options> for ppl to sort with
   for (var i = 0; i < restaurants.length; i++) {
     for (var j = 0; j < restaurants[i].type.length; j++) {
-      if (typesOfFood.indexOf(restaurants[i].type[j]) === -1) { //if not in list, append it
-        typesOfFood.push(restaurants[i].type[j]);
-      }
+      if (typesOfFood.indexOf(restaurants[i].type[j].toLowerCase()) === -1) { //if not in list, append it
+        typesOfFood.push(restaurants[i].type[j].toLowerCase());
+      } //toLowerCase so that there wont be Thai and thai after new restaurant added
     }
   }
+  typesOfFood.sort();
   // buildElements here
   for (var i = 0; i < typesOfFood.length; i++) {
     var el = buildElement('option', typesOfFood[i], typeBox, true);
