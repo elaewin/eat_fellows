@@ -29,8 +29,8 @@ function initMap() {
   buildMarkers(restaurants);
 }
 
-function buildMarkers(markerList) {
 // Builds the markers on the map
+function buildMarkers(markerList) {
   clearScreen();
   var cfIcon = 'img/cfIcon.png';
   var cfmarker = new google.maps.Marker({
@@ -53,8 +53,8 @@ function buildMarkers(markerList) {
   markerLoop(markerList);
 }
 
-function createMarker(name, address) {
 // Builds one marker
+function createMarker(name, address) {
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -66,9 +66,13 @@ function createMarker(name, address) {
           content: contentString
         });
 
+        // var forkAndKnife = 'img/fork_and_knife.png';
+        // var drumstick = 'img/drumstick.png'
+
         var marker = new google.maps.Marker({
           position: results[0].geometry.location,
           map: map,
+          // icon: drumstick,
           title: name
         });
         markers.push(marker);
@@ -91,8 +95,8 @@ function createMarker(name, address) {
   });
 }
 
-function clearScreen() {
 // Clears markers from map
+function clearScreen() {
   for (var i = 0; i < markers.length; i++ ) {
     markers[i].setMap(null);
   }
@@ -198,8 +202,8 @@ function codeClick(code) {
   updateResults();
 }
 
-function updateResults() {
 // updates the results and then loc markers after search item chosen
+function updateResults() {
   var results = [];
   for (var i = 0; i < typeList.length; i++) {
     if (costList.indexOf(typeList[i]) != -1 && ratingList.indexOf(typeList[i]) != -1 && codeList.indexOf(typeList[i]) != -1) {
@@ -225,8 +229,8 @@ var removeStoredSelection = function() {
   }
 };
 
-function listenForEvents() {
 // search event listeners
+function listenForEvents() {
   toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
   costBox.addEventListener('change', function() {
     costClick(costBox.value);
@@ -243,8 +247,9 @@ show_all.addEventListener('click', removeStoredSelection);
 
 //++-------------------------++
 // ++ Program Flow Functions ++
-function initializeData() {
+
 // gets data from storage or dataset
+function initializeData() {
   if (localStorage.eatFellows) {
     restaurants = JSON.parse(localStorage.eatFellows);
 // re-attach methods
@@ -277,8 +282,8 @@ function initializeData() {
   codeList = restaurants;
 }
 
-function updateTypes() {
 // updates the types of food list for the website <options> for ppl to sort with
+function updateTypes() {
   for (var i = 0; i < restaurants.length; i++) {
     for (var j = 0; j < restaurants[i].type.length; j++) {
       if (typesOfFood.indexOf(restaurants[i].type[j].toLowerCase()) === -1) { //if not in list, append it
@@ -295,8 +300,8 @@ function updateTypes() {
 }
 
 // ++ Useful funcs ++
+// Builds an HTML element, returnVal is boolean
 function buildElement(elType, content, parentNode, returnVal) {
-// Builds and HTML element, returnVal is boolean if you want element built returned
   var tmp = document.createElement(elType);
   if (content) {
     tmp.textContent = content;
@@ -307,22 +312,22 @@ function buildElement(elType, content, parentNode, returnVal) {
   }
 }
 
-function insertSubStr(index, str, substr) {
 // inserts a substring into str after index
-
+function insertSubStr(index, str, substr) {
   if (index > 0) {
     return str.slice(0, index) + substr + str.slice(index, str.length);
   }
 }
 
-function formatInputText(uinput) {
 // formats user input
-}
+// function formatInputText(uinput) {
+// }
 
 //++-------------------------------++
 //++ Data manipulation/debug tools ++
-function removeRestaurant(name) {
+
 // removes a restaurant from the dataset in memory
+function removeRestaurant(name) {
   for (var i = 0; i < restaurants.length; i++) {
     if (restaurants[i].name === name) {
       restaurants.splice(i, 1);
@@ -330,8 +335,8 @@ function removeRestaurant(name) {
   }
 }
 
-function addTestRestaurant(name, types) {
 // creates a bogus vegan Restaurant to quickly test (types is an array of strings)
+function addTestRestaurant(name, types) {
   tmp = new Restaurant(name, '3000 1st Ave S', types, true);
   tmp.reviews = [new Review('Anonymous (test)', 'A test boiga!', 0, 2, 2)];
   tmp.reviews[0].comment = 'This is a test.  Blah blah blah';
@@ -342,8 +347,8 @@ function addTestRestaurant(name, types) {
 
 //++-------++
 // ++ Main ++
-function main() {
 // main program loop - step by step of program - should only be funcs in here
+function main() {
   initializeData();
   listenForEvents();
 }
