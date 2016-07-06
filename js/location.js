@@ -22,8 +22,8 @@ function addNewRest(name, address, phone, types, vegan, image) {
 
 function addNewReview(restname, username, faveDish, code, cost, rating) {
 // Add a new review to a restaurant
-  newReview = new ReviewReview(username, faveDish, code, cost, rating);
-  restname.reviews.push(newReview);
+  newReview = new Review(username, faveDish, code, cost, rating);
+  matchSelectedRestwithObj(restname).reviews.push(newReview);
   localStorage.eatFellows = JSON.stringify(restaurants);
 }
 
@@ -62,7 +62,7 @@ var buildNewElement = function(kind, content, where, attName, attValue) {
     x.setAttribute(attName, attValue);
   }
   where.appendChild(x);
-}
+};
 
 // loads restaurant information into the DOM.
 var loadDetails = function() {
@@ -109,9 +109,39 @@ var handleNewRest = function(event) {
 // Event listener to display a particular restaurant
 wholeList.addEventListener('click', handleNewRest);
 
+function matchSelectedRestwithObj(selection) {
+  for (var i = 0; i < restaurants.length; i++) {
+    if (selection.name === restaurants[i].name) {
+      return restaurants[i];
+    } else {
+      console.log('no match found.');
+    }
+  }
+}
+var uname_r = document.getElementById('username');
+var fave_r = document.getElementById('fav_item');
+var code_r = document.getElementById('code_check');
+var cost_r = document.getElementById('cost_drp');
+var rate_r = document.getElementById('rating_drp');
+var submit = document.getElementById('submitReviewBtn');
+
+function setupListener() {
+  submit.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (selectedRest && uname_r.value && fave_r.value && cost_r.value && rate_r.value) {
+      restname = selectedRest;
+      addNewReview(restname, uname_r, fave_r, code_r, cost_r, rate_r);
+    } else {
+      alert('Enter all fields.');
+      return null;
+    }
+  });
+}
+
 function main() {
   checkLocalStorage();
   loadDetails();
+  setupListener();
 }
 
 main();

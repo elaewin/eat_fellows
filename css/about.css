@@ -13,8 +13,16 @@ main h1 {
   height: 400px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 h3 {
   line-height: 36px;
+  padding-bottom: 5px;
+}
+
+img {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
