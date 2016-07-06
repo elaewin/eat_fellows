@@ -15,11 +15,6 @@ section h3 {
   border-bottom: 1px solid #4d4d4d;
 }
 
-form {
-  align-content: center;
-  text-align: center;
-}
-
 #details {
   display: none;
 }
@@ -69,7 +64,7 @@ form {
   padding-top: 10px;
 }
 
-#reviews p:last-child {
+#reviews li p:last-child {
   border-bottom: 1px solid #4d4d4d;
   padding-bottom: 30px;
 }
@@ -90,4 +85,16 @@ form {
 
 #all_restaurants li h4 {
   color: #cf2f26;
+}
+
+button {
+  background: #a51a13;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  display: inline-block;
+  font-family: "Source Code Pro", monospace;
+  margin: 10px auto;
+  padding: 8px 20px;
+  text-transform: uppercase;
 }
