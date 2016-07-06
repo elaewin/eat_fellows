@@ -93,6 +93,7 @@ var loadDetails = function() {
       tf = 'No :(';
     }
     gfc.textContent = tf;
+    ulEl.innerHTML = '';
     for(var i = 0; i < selectedRest.reviews.length; i++) {
       buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
     }
@@ -133,7 +134,9 @@ function setupListener() {
     e.preventDefault();
     if (selectedRest && uname_r.value && fave_r.value && cost_r.value && rate_r.value && comments_r.value) {
       addNewReview(selectedRest.name, uname_r.value, fave_r.value, code_r.value, cost_r.value, rate_r.value, comments_r.value);
+      handleRestSelect(selectedRest.name);
       divAddNew.setAttribute('class', 'hide');
+      main();
     } else {
       alert('Enter all fields.');
       return null;
