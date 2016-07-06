@@ -44,7 +44,7 @@ var loadDetails = function() {
     address.textContent = selectedRest.address;
     phone.textContent = selectedRest.phone;
     for(var i = 0; i < selectedRest.type.length; i++) {
-      buildNewElement('li', selectedRest.type[i], type);
+      buildElement('li', selectedRest.type[i], type, false);
     }
     // type.textContent = selectedRest.type;
     rating.textContent = selectedRest.avgRating();

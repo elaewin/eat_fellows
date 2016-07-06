@@ -297,6 +297,17 @@ function buildElement(elType, content, parentNode, returnVal) {
   }
 }
 
+function insertSubStr(index, str, substr) {
+// inserts a substring into str after index
+  if (index > 0) {
+    return str.slice(0, index) + substr + str.slice(index, str.length);
+  }
+}
+
+function formatInputText(uinput) {
+// formats user input
+}
+
 //++-------------------------------++
 //++ Data manipulation/debug tools ++
 function removeRestaurant(name) {
