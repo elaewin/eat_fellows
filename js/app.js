@@ -87,8 +87,6 @@ function createMarker(name, address) {
           } else {
             tooltips.push(infowindow);
           }
-          console.log(marker.getPosition().lat());
-          console.log(marker.getPosition().lng());
           handleRestSelect(name);
           tooltips[0].open(map, marker);
         });

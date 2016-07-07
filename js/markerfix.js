@@ -14,6 +14,7 @@ function randoSpider(listOfMarkers) {
       }
     }
   }
+  return listOfMarkers;
 }
 
 //gets random number in range positive OR negative
