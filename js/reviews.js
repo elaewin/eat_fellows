@@ -19,7 +19,7 @@ bang1.comment = 'It\'s a "meh" place to code. Possible but not ideal. Also - Ban
 var cherry1 = new Review('Kris Skelton', '12oz iced Americano with heavy cream', 0, 2, 4);
 cherry1.comment = 'There is one table that can accommodate four people, as I recall. I don\'t believe they have WiFi. I mostly go here because it\'s a reasonable walk from Code Fellows (15 min round trip). They serve sandwiches and light fare, and the pastries are good. The coffee is excellent and the regular staff are all really nice. Heavy cream is available upon request.';
 
-var mod1 = new Review('Erica', 'Pizza with grilld asparagus', 0, 2, 3);
+var mod1 = new Review('Erica', 'Pizza with grilled asparagus', 0, 2, 3);
 mod1.comment = 'Lines at lunch are crazy when the weather is nice.';
 
 var plum1 = new Review('Alison Z', 'Jerk Tofu & Yam', 0, 3, 5);
