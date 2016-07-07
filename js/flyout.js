@@ -7,7 +7,6 @@ var labels = document.getElementsByClassName('flyout_text');
 var typeDD = document.getElementById('type_dd');
 var costDD = document.getElementById('cost_dd');
 function toggler(state) {
-  // grab elements
   container.addEventListener('mouseover', activateMenu);
   container.addEventListener('mouseout', deactivateMenu);
 }
