@@ -46,6 +46,24 @@ function buildMarkers(markerList) {
     position: cfLoc,
     title: 'Code Fellows'
   });
+
+  // markers.push(marker);
+  // google.maps.event.addListener(marker, 'click', function() {
+  //   if (tooltips.length > 0) {  //closes previous infowindows open
+  //     tooltips.push(infowindow);
+  //     tooltips[0].close();
+  //     tooltips.splice(0,1);
+
+//center map when code fellows logo clicked
+  google.maps.event.addListener(cfmarker, 'click', function() {
+    console.log('cf clicked');
+    centerMap();
+  });
+
+  function centerMap() {
+    map.setCenter(cfLoc);
+  }
+
 //This is convoluted looking, but basically creates a delay for geocode to work correctly
   var l = 0;
   function markerLoop(markerList) {
