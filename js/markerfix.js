@@ -1,13 +1,12 @@
 //This function was created to separate up to 9 lat/lng on markers w/ exact same location from a list of markers which contain some location duplicates
-// future:
-// use # of markers to calc points on a circle and generate offsets list with trigonometry
+// future: use # of markers to calc points on a circle and generate offsets list with trigonometry
 
 function offsetDuplicates(listOfMarkers) {
   d = 0.00015; //Amount lat/lng to offset by
   var offsets = [[d / 1.5, 0],[0, d],[-d / 1.5, 0],[0, -d],[d / 1.5, d],[-d / 1.5, d],[-d / 1.5, -d],[d / 1.5, -d]];
   var rMarkers = [];
   var newEntry = true;
-
+  //create 2-d array of matching markerList marker indices
   for (var i = 0; i < listOfMarkers.length; i++) {
     var tmp = [];
     tmp.push(i);

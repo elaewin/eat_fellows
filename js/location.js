@@ -138,6 +138,9 @@ function matchSelectedRestwithObj(selection) {
 function setupListener() {
   submit.addEventListener('click', function(e) {
     e.preventDefault();
+    if (!fave_r.value) {
+      fave_r.value = 'none given';
+    }
     if (selectedRest && uname_r.value && parseInt(cost_r.value) && parseInt(rate_r.value) && comments_r.value) {
       addNewReview(selectedRest.name, uname_r.value, fave_r.value, parseInt(code_r.value), parseInt(cost_r.value), parseInt(rate_r.value), comments_r.value);
       handleRestSelect(selectedRest.name);
