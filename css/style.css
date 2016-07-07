@@ -105,6 +105,18 @@ header li {
   font-family: Georgia, serif;
 }
 
+.tooltip button {
+  background: #a51a13;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  display: block;
+  font-family: "Source Code Pro", monospace;
+  margin: 10px auto;
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
+
 footer {
   font-family: "Source Code Pro", monotype;
   height: 70px;
