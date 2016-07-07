@@ -1,5 +1,8 @@
-function randoSpider(listOfMarkers) {
-// used to separate up to 9 lat/lng on markers w/ exact same location
+//This function was created to separate up to 9 lat/lng on markers w/ exact same location from a list of markers which contain some location duplicates
+// future:
+// use # of markers to calc points on a circle and generate offsets list with trigonometry
+
+function offsetDuplicates(listOfMarkers) {
   d = 0.00015; //Amount lat/lng to offset by
   var offsets = [[d / 1.5, 0],[0, d],[-d / 1.5, 0],[0, -d],[d / 1.5, d],[-d / 1.5, d],[-d / 1.5, -d],[d / 1.5, -d]];
   var rMarkers = [];
@@ -16,14 +19,14 @@ function randoSpider(listOfMarkers) {
     tmp = tmp.sort();
     rMarkers.push(tmp);
   }
-  //get rid of no-matches
+  //remove unique marker arrays
   for (var k = 0; k < rMarkers.length; k++) {
     if (rMarkers[k].length === 1) {
       rMarkers.splice(k, 1);
       k--;
     }
   }
-  //remove duplicates
+  //remove duplicates of match arrays
   for (var l = 0; l < rMarkers.length; l++) {
     for (var m = 0; m < rMarkers.length; m++) {
       if (JSON.stringify(rMarkers[l]) === JSON.stringify(rMarkers[m]) && l != m) {
@@ -33,7 +36,7 @@ function randoSpider(listOfMarkers) {
     }
   }
 
-// apply loc offsets
+// apply loc offsets to markers with same location
   var x, y;
   for (var k = 0; k < rMarkers.length; k++){
     for (var l = 1; l < rMarkers[k].length; l++) {
