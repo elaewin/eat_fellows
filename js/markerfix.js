@@ -1,6 +1,7 @@
 function randoSpider(listOfMarkers) {
-// used to offset lat/lng on markers w/ exact same location
-  var offsets = [[0.00015, 0],[0, 0.00015],[-0.00015, 0],[0, -0.00015],[0.00015, 0.00015],[-0.00015,0.00015],[-0.00015, -0.00015],[0.00015,-0.00015]];
+// used to separate up to 9 lat/lng on markers w/ exact same location
+  d = 0.00015; //Amount lat/lng to offset by
+  var offsets = [[d, 0],[0, d],[-d, 0],[0, -d],[d, d],[-d, d],[-d, -d],[d, -d]];
   var rMarkers = [];
   var newEntry = true;
 
