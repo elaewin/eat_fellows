@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eat Fellows</title>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Monda:700|Source+Code+Pro:500" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/about.css"/>
+  </head>
+  <body>
+    <header>
+      <div id="header_container">
+        <p>
+          <a href="index.html">&#x276e;&#x1f357;&#x276f;</a></p>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a id="show_all" href="location.html">All Restaurants</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h3>Add a new Restaurant</h3>
+      <form id="add_restaurant">
+        <fieldset class="splitter">
+          <label for="username">Your name:</label>
+          <input type="text" name="username" id="username" placeholder="Who are you?" required>
+        </fieldset>
+        <fieldset>
+          <legend>Restaurant Details</legend>
+          <label for="rest_name">Restaurant Name:</label>
+          <input type="text" name="rest_name" id="rest_name" placeholder="Business name" required/>
+        </fieldset>
+        <fieldset>
+          <label for="rest_phone">Phone Number:</label>
+          <input type="tel" name="rest_phone" id="rest_phone" placeholder="Business phone number"/>
+          <label for="rest_image">Photo:</label>
+          <input type="url" name="rest_image" id="rest_image" placeholder="URL for photo"/>
+        </fieldset>
+        <fieldset class="splitter">
+          <label for="rest_addy">Address:</label>
+          <input type="text" name="rest_ady" id="rest_addy" placeholder="Google can help with this" required/>
+        </fieldset>
+        <fieldset>
+          <legend>Cuisine Options</legend>
+          <label for="vegan_check">This place has vegan options.</label>
+          <input type="checkbox" id="vegan_check" class="vegan_check">
+        </fieldset>
+        <fieldset>
+          <legend class="sub_legend">What kinds of food does the restaurant serve?</legend>
+          <select class="menu" id="choice1">
+            <option>Pick a kind of food</option>
+          </select>
+          <select class="menu" id="choice2">
+            <option>Pick another kind of food</option>
+          </select>
+          <select class="menu" id="choice3">
+            <option>Pick another kind of food</option>
+          </select>
+        </fieldset>
+        <fieldset class="splitter">
+          <label for="new_cuisine">None of those kinds of food are correct!</label>
+          <input type="text" name="new_cuisine" id="new_cuisine" placeholder="Add this kind of food instead!"/>
+        </fieldset>
+        <fieldset>
+          <legend>Add a Review</legend>
+          <label for="fav_item">Favorite Item:</label>
+          <input type="text" name="fav_item" id="fav_item" placeholder="What's the best thing on the menu?" value="Nothing!">
+        </fieldset>
+        <fieldset>
+          <label for="cost_drp">Cost for a typical order?</label>
+          <select id="cost_drp">
+            <option value=0>Select price</option>
+            <option value=1>1 - Cheap!</option>
+            <option value=2>2 - Reasonable!</option>
+            <option value=3>3 - Pricey!</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label for="rating_drp">How would you rate this restaurant?</label>
+          <select id="rating_drp">
+            <option value=0>Select rating</option>
+            <option value=1>1 - Do not want.</option>
+            <option value=2>2 - Not great.</option>
+            <option value=3>3 - Alright.</option>
+            <option value=4>4 - Pretty great.</option>
+            <option value=5>5 - I'm a fan!</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label for="code_check">This is a good place to code!</label>
+          <input type="checkbox" id="code_check" class="custom_check">
+        </fieldset>
+        <fieldset>
+          <textarea name="review" id="review" rows="8" cols="90" placeholder="Now tell us what you think of the place."></textarea>
+        </fieldset>
+          <input type="submit" value="Submit Your Review" id="submitReviewBtn" required>
+        </form>
+      <div class="clearfix"></div>
+    </main>
+    <footer>
+      <p>Something clever goes here.</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ5OV0nCy-Fu_HpxqTdEH83JG_CoaU6M&callback=initMap"
+    async defer></script>
+		<script src="js/reviews.js"></script>
+    <script src="js/restaurants.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
