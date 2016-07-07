@@ -10,10 +10,12 @@
   <body>
     <header>
       <div id="header_container">
-        <div id="nav">
-          <p><a href="index.html">&#x276e;&#x1f357;&#x276f;</a></p>
-        </div>
-        <h1><a href="index.html">Eat Fellows</a></h1>
+        <p>
+          <a href="index.html">&#x276e;&#x1f357;&#x276f;</a></p>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a id="show_all" href="location.html">All Restaurants</a></li>
+        </ul>
       </div>
     </header>
     <main>
@@ -32,7 +34,7 @@
       </section>
       <div class="clearfix"></div>
       <section id="reviews">
-        <h3>Reviews</h3>
+        <h3 class="review">Reviews</h3>
         <ul id="user_reviews"></ul>
         <div id="add_new_review">
           <h3 class="review">Have something to say about this place?</h3>
@@ -76,16 +78,13 @@
       </section>
       <div class="clearfix"></div>
       <section id="all_restaurants">
-        <h2>Restaurants Near Code Fellows</h2>
+        <h2 class="all_header">Restaurants Near Code Fellows</h2>
         <ul id="rest_list"></ul>
         <div class="clearfix"></div>
       </section>
     </main>
     <footer>
-        <p>
-          <a href="about.html">About Us</a> |
-          <a id="show_all" href="location.html">All Restaurants</a>
-        </p>
+      <p>Please remember: Beer and coffee aren't actually food...</p>
     </footer>
     <script src="js/reviews.js"></script>
     <script src="js/restaurants.js"></script>

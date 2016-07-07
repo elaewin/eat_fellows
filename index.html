@@ -12,42 +12,42 @@
   <body>
     <header>
       <div id="header_container">
-        <div id="nav">
-          <p><a href="index.html">&#x276e;&#x1f357;&#x276f;</a></p>
-        </div>
-        <h1><a href="index.html">Eat Fellows</a></h1>
+        <p>
+          <a href="index.html">&#x276e;&#x1f357;&#x276f;</a></p>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a id="show_all" href="location.html">All Restaurants</a></li>
+        </ul>
       </div>
     </header>
       <main>
         <!-- flyout menu -->
         <section id="flyout">
-            <span id="flyout_label">Find Food</span>
-            <form id="flyout_form">
-              <p class="flyout_text">What do you want to eat?</p>
-              <select id="type_dd">
-                <option value="all">I'm hungry for:</option>
-              </select>
-              <p class="flyout_text">How cheap should it be?</p>
-              <select id="cost_dd">
-                <option value="3">My wallet says:</option>
-                <option value="1">The cheapest!</option>
-                <option value="2">Keep it reasonable...</option>
-                <option value="3">Money is no object!</option>
-              </select>
-              <label class="flyout_text"><input type="checkbox" id="code_cb" class="custom_check">I'm looking for a place to code!</label>
-            </form>
+          <span id="flyout_label">Find Food</span>
+          <form id="flyout_form">
+            <p class="flyout_text">What do you want to eat?</p>
+            <select id="type_dd">
+              <option>I'm hungry for:</option>
+            </select>
+            <p class="flyout_text">How cheap should it be?</p>
+            <select id="cost_dd">
+              <option value="3">My wallet says:</option>
+              <option value="1">The cheapest!</option>
+              <option value="2">Keep it reasonable...</option>
+              <option value="3">Money is no object!</option>
+            </select>
+            <label class="flyout_text"><input type="checkbox" id="code_cb" class="custom_check">I'm looking for a place to code!</label>
+          </form>
         </section>
         <div id="description">
+          <h1><a href="index.html">Eat Fellows</a></h1>
           <h4>Food recommendations for the folks at Code Fellows Seattle!</h4>
         </div>
         <div id="map"></div>
       </main>
       <div class="push"></div>
       <footer>
-          <p>
-            <a href="about.html">About Us</a> |
-            <a id="show_all" href="location.html">All Restaurants</a>
-          </p>
+          <p>Math.random(food);</p>
       </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ5OV0nCy-Fu_HpxqTdEH83JG_CoaU6M&callback=initMap"
     async defer></script>

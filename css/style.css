@@ -35,6 +35,9 @@ h1, h2 {
 
 h1 {
   text-transform: uppercase;
+  font-size: 4em;
+  text-align: center;
+  padding: 35px 0 20px;
 }
 
 h2 {
@@ -72,23 +75,24 @@ a:visited {
 
 #header_container {
   width: 960px;
+  height: 90px;
   margin: 0 auto;
   position: relative;
 }
 
-#nav {
-  position: absolute;
-}
-
-#nav p {
+header p {
+  display: inline-block;
+  float: left;
   font-size: 3.5em;
   margin: 35px 0 35px 15px;;
 }
 
-header h1 {
-  font-size: 4em;
-  text-align: center;
-  padding: 30px 0 35px;
+header li {
+  float: right;
+  display: inline-block;
+  font-family: "Source Code Pro", monospace;
+/*   font-family: "Monda", monospace; */
+  padding: 34px 30px 35px 0;
 }
 
 #description h4 {
@@ -108,6 +112,7 @@ footer {
 }
 
 footer p {
+  font-size: .8em;
   padding: 20px 0;
   text-align: center;
 }

@@ -17,6 +17,7 @@ var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 var tooltips = []; //Array of infowindows to keep only 1 open
 
 var showAll = document.getElementById('show_all');
+var flyoutMenu = document.getElementById('flyout');
 //++-------------++
 //++ Google maps ++
 function initMap() {

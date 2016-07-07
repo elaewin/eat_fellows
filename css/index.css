@@ -1,13 +1,11 @@
 /*This is for the flyout menu styling*/
-* {
-  margin: 0;
-}
+
 section {
   z-index: 1;
   position: absolute;
   width: 41px;
-  height: 500px;
-  margin-top: 50px;
+  height: 350px;
+  margin-top: 140px;
   background: #cf2f26;
   cursor: pointer;
   border-radius: 0 10px 10px 0;
@@ -32,6 +30,11 @@ select {
   display: none;
 }
 
+.active {
+  background: rgba(207, 47, 38, .9);
+  width: 300px;
+}
+
 .flyout_text {
   display: none;
   font-family: "Source Code Pro", monospace;
@@ -42,11 +45,6 @@ select {
 
 form {
   margin-left: 35px;
-}
-
-.active {
-  background: rgba(207, 47, 38, .9);
-  width: 300px;
 }
 
 #type_dd, #cost_dd {
