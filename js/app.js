@@ -238,7 +238,9 @@ var removeStoredSelection = function() {
 // search event listeners
 function listenForEvents() {
   try {
-    toggler('flyout', 'flyout_label', 'active');  //Activate out flyout menu
+    toggler('active');  //Activate out flyout menu
+    activateMenu();
+    window.setTimeout(deactivateMenu, 5000);
     costBox.addEventListener('change', function() {
       costClick(costBox.value);
     }, false);
