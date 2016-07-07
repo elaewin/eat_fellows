@@ -34,4 +34,9 @@ Code Fellows logo from: https://www.switchup.org/bootcamps/code-fellows
 
 ### Image Credits:
 
-* 5 Points Cafe:
+* google.com
+* yelp.com
+
+### Random Math Javascript:
+
+* MDN - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
