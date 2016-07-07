@@ -96,6 +96,11 @@ header h1 {
   padding: 10px 0;
 }
 
+/*style tooltip*/
+.tooltip p {
+  font-family: Georgia, serif;
+}
+
 footer {
   font-family: "Source Code Pro", monotype;
   height: 70px;
