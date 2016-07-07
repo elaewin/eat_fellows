@@ -3,7 +3,6 @@ function offsetLocs(listOfMarkers) {
   d = 0.00015; //Amount lat/lng to offset by (1.5 factor corrects lat/lng scale difference)
   var offsets = [[d / 1.5, 0],[0, d],[-d / 1.5, 0],[0, -d],[d / 1.5, d],[-d / 1.5, d],[-d / 1.5, -d],[d / 1.5, -d]];
   var rMarkers = [];
-  var newEntry = true;
   //find repeated loc markers and put indices into arrays
   for (var i = 0; i < listOfMarkers.length; i++) {
     var tmp = [];
@@ -16,7 +15,7 @@ function offsetLocs(listOfMarkers) {
     tmp = tmp.sort(); //sort for comparisons later
     rMarkers.push(tmp);
   }
-  //get rid of no-matches arrays
+  //get rid of unique location arrays
   for (var k = 0; k < rMarkers.length; k++) {
     if (rMarkers[k].length === 1) {
       rMarkers.splice(k, 1);
@@ -33,7 +32,7 @@ function offsetLocs(listOfMarkers) {
     }
   }
 
-// apply loc offsets for remaining match arrays
+//apply loc offsets for remaining match arrays
   var x, y;
   for (var k = 0; k < rMarkers.length; k++){
     for (var l = 1; l < rMarkers[k].length; l++) {
