@@ -37,8 +37,8 @@
         <div id="add_new_review">
           <h3>Have something to say about this place?</h3>
           <form id="new_review">
-            Your name:&nbsp;<input type="text" name="username" id="username">
-            Favorite Item:&nbsp;<input type="text" name="fav_item" id="fav_item">
+            Your name:&nbsp;<input type="text" name="username" id="username" placeholder="Who are you?" required>
+            Favorite Item:&nbsp;<input type="text" name="fav_item" id="fav_item" placeholder="What's the best thing on the menu?" value="Nothing!">
             <br>
             <h6>How is the price of a typical order?</h6>
             <select id="cost_drp">
@@ -59,8 +59,8 @@
             <br>
             Your review:&nbsp;
             <br>
-            <textarea name="review" id="review" rows="8" cols="60"></textarea>
-            <input type="submit" id="submitReviewBtn">
+            <textarea name="review" id="review" rows="8" cols="60" placeholder="Tell us what you think!"></textarea>
+            <input type="submit" id="submitReviewBtn" required>
           </form>
         </div>
       </section>
