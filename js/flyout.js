@@ -36,5 +36,3 @@ function deactivateMenu() {
     labels[i].style.display = 'none';
   }
 }
-
-container.onload(activateMenu);
