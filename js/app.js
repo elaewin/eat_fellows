@@ -16,6 +16,7 @@ var markers = []; //Array of all markers for the map
 var cfLoc = {lat: 47.618278, lng: -122.351841}; //location of CF
 var tooltips = []; //Array of infowindows to keep only 1 open
 
+var getRandom = document.getElementById('get_random');
 var showAll = document.getElementById('show_all');
 var flyoutMenu = document.getElementById('flyout');
 //++-------------++
@@ -28,6 +29,11 @@ function initMap() {
     zoom: 15
   });
   buildMarkers(restaurants);
+}
+
+//random number generator
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Builds the markers on the map
@@ -250,6 +256,13 @@ function listenForEvents() {
     checkBox.addEventListener('click', function() {
       codeClick(checkBox.checked);
     }, false);
+    var getRandomRest = function(){
+      var randomNum = getRandomIntInclusive(0, restaurants.length);
+      localStorage.storedSelection = JSON.stringify(restaurants[randomNum]);
+      console.log('number is', randomNum);
+    };
+
+    getRandom.addEventListener('click', getRandomRest);
   } catch(error) {
   }
 }
