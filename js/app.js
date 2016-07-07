@@ -47,10 +47,12 @@ function buildMarkers(markerList) {
         createMarker(markerList[l].name, markerList[l].address);
         l++;
         markerLoop(markerList);
+      } else {
+        markers = randoSpider(markers);  // deal with same spot markers
       }
     }, 300);
   }
-  markerLoop(markerList);
+  markerLoop(markerList); //show markers
 }
 
 // Builds one marker
@@ -85,6 +87,8 @@ function createMarker(name, address) {
           } else {
             tooltips.push(infowindow);
           }
+          console.log(marker.getPosition().lat());
+          console.log(marker.getPosition().lng());
           handleRestSelect(name);
           tooltips[0].open(map, marker);
         });
