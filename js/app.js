@@ -48,7 +48,7 @@ function buildMarkers(markerList) {
         l++;
         markerLoop(markerList);
       } else {
-        markers = randoSpider(markers);  // deal with same spot markers
+        markers = offsetLocs(markers);  // deal with same spot markers
       }
     }, 300);
   }
