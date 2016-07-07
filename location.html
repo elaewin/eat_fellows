@@ -35,34 +35,42 @@
         <h3>Reviews</h3>
         <ul id="user_reviews"></ul>
         <div id="add_new_review">
-          <h3>Have something to say about this place?</h3>
+          <h3 class="review">Have something to say about this place?</h3>
           <form id="new_review">
-            Your name:&nbsp;<input type="text" name="username" id="username" placeholder="Who are you?" required>
-            Favorite Item:&nbsp;<input type="text" name="fav_item" id="fav_item" placeholder="What's the best thing on the menu?" value="Nothing!">
-            <br>
-            <h6>How is the price of a typical order?</h6>
-            <select id="cost_drp">
-              <option value=0>Select price</option>
-              <option value=1>1 - Cheap!</option>
-              <option value=2>2 - Reasonable!</option>
-              <option value=3>3 - Pricey!</option>
-            </select>
-            <h6>How would you rate this restaurant?</h6>
-            <select id="rating_drp">
-              <option value=0>Select rating</option>
-              <option value=1>1 - Do not want.</option>
-              <option value=2>2 - Not great.</option>
-              <option value=3>3 - Alright.</option>
-              <option value=4>4 - Pretty great.</option>
-              <option value=5>5 - I'm a fan!</option>
-            </select>
-            <br>
-            <label><input type="checkbox" id="code_check" class="custom_check">Is this a good place to code?</label>
-            <br>
-            Your review:&nbsp;
-            <br>
-            <textarea name="review" id="review" rows="8" cols="60" placeholder="Tell us what you think!"></textarea>
-            <input type="submit" id="submitReviewBtn" required>
+            <fieldset>
+              <label for="username">Your name:</label>
+              <input type="text" name="username" id="username" placeholder="Who are you?" required>
+              <label for"fav_item">Favorite Item:</label>
+              <input type="text" name="fav_item" id="fav_item" placeholder="What's the best thing on the menu?" value="Nothing!">
+            </fieldset>
+            <fieldset>
+              <label for="cost_drp">How is the price of a typical order?</label>
+              <select id="cost_drp">
+                <option value=0>Select price</option>
+                <option value=1>1 - Cheap!</option>
+                <option value=2>2 - Reasonable!</option>
+                <option value=3>3 - Pricey!</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="rating_drp">How would you rate this restaurant?</label>
+              <select id="rating_drp">
+                <option value=0>Select rating</option>
+                <option value=1>1 - Do not want.</option>
+                <option value=2>2 - Not great.</option>
+                <option value=3>3 - Alright.</option>
+                <option value=4>4 - Pretty great.</option>
+                <option value=5>5 - I'm a fan!</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="code_check">This is a good place to code!</label>
+              <input type="checkbox" id="code_check" class="custom_check">
+            </fieldset>
+            <fieldset>
+              <textarea name="review" id="review" rows="8" cols="90" placeholder="Now tell us what you think of the place."></textarea>
+            </fieldset>
+            <input type="submit" value="Submit Your Review" id="submitReviewBtn" required>
           </form>
         </div>
       </section>
