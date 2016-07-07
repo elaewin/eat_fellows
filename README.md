@@ -14,26 +14,24 @@ Code Fellows logo from: https://www.switchup.org/bootcamps/code-fellows
 
 ## Team Process ##
 
-### Git Flow
-* All issues entered in Waffle.
-* Branchnames and commit messages include issue number. [event listeners #22]
-* Sit down merge parties every morning and before leaving.
-* Merge party after < 5 PRs.
-* Git push in alpha order: David, Erica, Logan, Val.
-
-
 ### Using Waffle:
 
-* Put an 'M' in front of MVP issues, followed by the next issue #.
-* Move an item into 'In Progress' on Waffle BEFORE starting a new branch, so work doesn't get duplicated?
+* Put an 'M' in front of MVP issues; add 'MVP' label.
+* Stretch goals get the 'enhancement' label
 
-### Github:
+### Github/Git Flow:
 
-* Branches should be named after the **issue number**, so we can tell who is working on what.
+* Branch names should include  the **issue number** (e.g event-listeners#22), so we can tell who is working on what.
 * After 5 pull requests, all work stops. Merge Party!
 * Merge Party at the start (after standup meeting) and end of every day (5pm).
+* Git push in alpha order: David, Erica, Logan, Val.
 
 ### General Stuff:
 
 * Clear comments on all code so others can tell what it does.
 * If you see a variable name, etc., that is not self-explanatory, ask about it!
+
+
+### Image Credits:
+
+* 5 Points Cafe:

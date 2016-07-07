@@ -48,10 +48,12 @@ function buildMarkers(markerList) {
         createMarker(markerList[l].name, markerList[l].address);
         l++;
         markerLoop(markerList);
+      } else {
+        markers = randoSpider(markers);  // deal with same spot markers
       }
     }, 300);
   }
-  markerLoop(markerList);
+  markerLoop(markerList); //show markers
 }
 
 // Builds one marker
@@ -170,6 +172,9 @@ function sortByType(objList, type) {
         break;
       }
     }
+  }
+  if (type === 'all') {
+    tmp = objList;
   }
   return tmp;
 }

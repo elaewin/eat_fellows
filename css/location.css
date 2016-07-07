@@ -1,4 +1,8 @@
 /* LOCATION PAGE SPECIFIC STYLES GO HERE! */
+* {
+  /*outline: 1px dashed orange;*/
+}
+
 section {
   clear: both;
 }
@@ -8,27 +12,11 @@ section h2, h3 {
   margin: 0 30px;
 }
 
-section h3 {
+h3 {
   color: #cf2f26;
   font-family: "Monda", sans-serif;
   text-align: center;
   border-bottom: 1px solid #4d4d4d;
-}
-
-form {
-  align-content: center;
-  text-align: center;
-}
-
-@keyframes hideDiv {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
-
-.hide {
-  animation-name: hideDiv;
-  animation-duration: 700ms;
-  opacity: 0;
 }
 
 #details {
@@ -52,12 +40,13 @@ form {
 }
 
 #details li {
-  padding-bottom: 10px;
+  padding-bottom: 2px;
   list-style: disc inside none;
+  margin-left: 15px;
 }
 
 #details p, #details li:last-child {
-  padding-bottom: 15px;
+  padding-bottom: 12px;
 }
 
 #details .above_list {
@@ -67,7 +56,6 @@ form {
 #reviews {
   display: none;
   width: 960px;
-  margin: 30px 0;
 }
 
 #reviews li {
@@ -85,8 +73,41 @@ form {
   padding-bottom: 30px;
 }
 
+
 .all_header {
   padding-left: 30px;
+
+.review {
+  border-bottom: none;
+}
+
+form {
+  /*align-content: center;
+  text-align: center;*/
+  margin: 0px 165px;
+}
+
+fieldset {
+  margin: 10px 30px;
+}
+
+label {
+  padding-right: 5px;
+}
+
+input {
+  margin-right: 30px;
+}
+
+@keyframes hideDiv {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.hide {
+  animation-name: hideDiv;
+  animation-duration: 700ms;
+  opacity: 0;
 }
 
 #all_restaurants {
@@ -107,12 +128,12 @@ form {
   color: #cf2f26;
 }
 
-button {
+button, #submitReviewBtn {
   background: #a51a13;
   border: none;
   border-radius: 20px;
   color: #fff;
-  display: inline-block;
+  display: block;
   font-family: "Source Code Pro", monospace;
   margin: 10px auto;
   padding: 8px 20px;

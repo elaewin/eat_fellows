@@ -81,8 +81,6 @@ var loadDetails = function() {
   if(selectedRest) {
     type.innerHTML = '';
     ulEl.innerHTML = '';
-    rating.textContent = '';
-    cost.textContent = '';
 
     restName.textContent = selectedRest.name;
     address.textContent = selectedRest.address;
@@ -91,9 +89,9 @@ var loadDetails = function() {
     for(var i = 0; i < selectedRest.type.length; i++) {
       buildNewElement('li', selectedRest.type[i], type);
     }
-    x = parseInt(selectedRest.avgRating());
+    x = parseInt(Math.round(selectedRest.avgRating()));
     rating.textContent = ratingGrades[x - 1];
-    x = parseInt(Math.floor(selectedRest.avgCost()));
+    x = parseInt(Math.round(selectedRest.avgCost()));
     cost.textContent = costGrades[x - 1];
     var tf = selectedRest.goodToCode();
     if (tf) {
@@ -132,7 +130,7 @@ function matchSelectedRestwithObj(selection) {
     if (selection === restaurants[i].name) {
       return restaurants[i];
     } else {
-      console.log('no match found.');
+      console.log('error: no match found.');
     }
   }
 }
@@ -140,7 +138,7 @@ function matchSelectedRestwithObj(selection) {
 function setupListener() {
   submit.addEventListener('click', function(e) {
     e.preventDefault();
-    if (selectedRest && uname_r.value && cost_r.value && rate_r.value && comments_r.value) {
+    if (selectedRest && uname_r.value && parseInt(cost_r.value) && parseInt(rate_r.value) && comments_r.value) {
       addNewReview(selectedRest.name, uname_r.value, fave_r.value, parseInt(code_r.value), parseInt(cost_r.value), parseInt(rate_r.value), comments_r.value);
       handleRestSelect(selectedRest.name);
       divAddNew.setAttribute('class', 'hide');
