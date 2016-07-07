@@ -172,6 +172,9 @@ function sortByType(objList, type) {
       }
     }
   }
+  if (type === 'all') {
+    tmp = objList;
+  }
   return tmp;
 }
 //++-------------++

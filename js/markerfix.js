@@ -1,48 +1,48 @@
 function randoSpider(listOfMarkers) {
 // used to offset lat/lng on markers w/ exact same location
   var offsets = [[0.00015, 0],[0, 0.00015],[-0.00015, 0],[0, -0.00015],[0.00015, 0.00015],[-0.00015,0.00015],[-0.00015, -0.00015],[0.00015,-0.00015]];
-  var lats = [];
-  var lngs = [];
-  var tmp = [];
-  sameLocMarkerIndices = [];
+  var rMarkers = [];
+  var newEntry = true;
+
   for (var i = 0; i < listOfMarkers.length; i++) {
-    lats.push(listOfMarkers[i].getPosition().lat());
-    lngs.push(listOfMarkers[i].getPosition().lng());
-  }
-  for (var j = 0; j < listOfMarkers.length; j++) {
-    tmp = [];
-    for (var k = 0; k < listOfMarkers.length; k++) {
-      if (listOfMarkers[j].getPosition().toString() === listOfMarkers[k].getPosition().toString() && j != k) {
-        tmp.push(k);
+    var tmp = [];
+    tmp.push(i);
+    for (var j = 0; j < listOfMarkers.length; j++) {
+      if (listOfMarkers[i].getPosition().toString() === listOfMarkers[j].getPosition().toString() && i != j) {
+        tmp.push(j);
       }
     }
-    sameLocMarkerIndices.push(tmp);
+    tmp = tmp.sort();
+    rMarkers.push(tmp);
   }
+  //get rid of no-matches
+  for (var k = 0; k < rMarkers.length; k++) {
+    if (rMarkers[k].length === 1) {
+      rMarkers.splice(k, 1);
+      k--;
+    }
+  }
+  //remove duplicates
+  for (var l = 0; l < rMarkers.length; l++) {
+    for (var m = 0; m < rMarkers.length; m++) {
+      if (JSON.stringify(rMarkers[l]) === JSON.stringify(rMarkers[m]) && l != m) {
+        rMarkers.splice(m, 1);
+        m--;
+      }
+    }
+  }
+
+// apply loc offsets
   var x, y;
-  for (var k = 0; k < sameLocMarkerIndices.length; k++){
-    for (var l = 0; l < sameLocMarkerIndices[k].length; l++) {
-      x = listOfMarkers[sameLocMarkerIndices[k][l]].getPosition().lat();
-      y = listOfMarkers[sameLocMarkerIndices[k][l]].getPosition().lng();
+  for (var k = 0; k < rMarkers.length; k++){
+    for (var l = 1; l < rMarkers[k].length; l++) {
+      x = listOfMarkers[rMarkers[k][l]].getPosition().lat();
+      y = listOfMarkers[rMarkers[k][l]].getPosition().lng();
       x += offsets[l][0];
       y += offsets[l][1];
       var point = new google.maps.LatLng(x,y);
-      listOfMarkers[l].setPosition(point);
+      listOfMarkers[rMarkers[k][l]].setPosition(point);
     }
   }
   return listOfMarkers;
-}
-var point = new google.maps.LatLng(listOfMarkers[j].getPosition().lat() + offsets[l][0], listOfMarkers[j].getPosition().lng() + offsets[l][1]);
-
-var point = new google.maps.LatLng(listOfMarkers[j].getPosition().lat() + getRandoOffset(.00003, .00016), listOfMarkers[j].getPosition().lng() + getRandoOffset(.00003, .00016));
-listOfMarkers[j].setPosition(point);
-
-//gets random number in range positive OR negative
-function getRandoOffset(min, max) {
-  var tmp = Math.random() * (max - min) + min;
-  var tmp2 = Math.round(Math.random());
-  if (tmp2 === 0) {
-    return (tmp * -1);
-  } else {
-    return tmp;
-  }
 }
