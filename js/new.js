@@ -1,6 +1,5 @@
 'use strict';
 
-
 var form = document.getElementById('add_restaurant');
 var cuisineType1 = document.getElementById('cuisine1');
 var cuisineType2 = document.getElementById('cuisine2');
@@ -27,7 +26,7 @@ function handleAddRest(event) {
   var newName = event.target.rest_name.value;
   var newAddress = event.target.rest_addy.value;
   var newPhone = event.target.rest_phone.value;
-  var newVegan = event.target.vegan_check.value;
+  var newVegan = event.target.vegan_check.checked;
   var newImage = event.target.rest_image.value;
   var addType1 = event.target.cuisine1.value;
   var addType2 = event.target.cuisine2.value;
