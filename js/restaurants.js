@@ -41,19 +41,19 @@ function getAverage(ObjsToAvg, property) {
   }
 }
 
-var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street, Seattle, WA', '206-448-9991', ['american', 'breakfast', 'beer'], false, 'img/5point.jpg');
-var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave, Seattle, WA', '206-448-2233', ['breakfast', 'mexican', 'sandwiches'], true, 'img/bangbang.jpg');
-var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave, Seattle, WA', '206-812-1298', ['coffee'], false, 'img/cherrystreet.jpg');
-var modPizza = new Restaurant('Mod Pizza', '305 Harrison St., Seattle, WA', '206-428-6315', ['pizza', 'beer'], true, 'img/mod.jpg');
-var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St., Seattle, WA', '206-428-6337', ['healthy', 'salad', 'vegan'], true, 'img/plum.jpg');
-var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St., Seattle, WA', '206-428-6280', ['pie', 'beer'], false, 'img/meatpies.jpg');
-var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St., Seattle, WA', '206-728-2228', ['american', 'seafood', 'beer'], false, 'img/quincy.jpg');
-var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N, Seattle, WA', '206-404-7767', ['american', 'pizza', 'beer'], false, 'img/sport.jpg');
-var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave Seattle, WA', '206-708-6803', ['coffee'], false, 'img/streetbean.jpg');
-var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street Seattle, WA', '206-443-1000', ['mexican'], true, 'img/taco.jpg');
-var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave, Seattle, WA', '206-441-4348', ['thai', 'beer'], false, 'img/thai.jpg');
-var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way Seattle, WA', '206-770-7777', ['coffee'], false, 'img/uptown.jpg');
-var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave, Seattle, WA 98121', '206-441-2967', ['sandwiches', 'teriyaki', 'coffee'], false, 'img/world.jpg');
+var fivePointCafe = new Restaurant('Five Point Cafe', '415 Cedar Street, Seattle, WA', '(206) 4489991', ['american', 'breakfast', 'beer'], false, 'img/5point.jpg');
+var bangBangCafe = new Restaurant('Bang Bang Cafe', '2460 Western Ave, Seattle, WA', '(206) 4482233', ['breakfast', 'mexican', 'sandwiches'], true, 'img/bangbang.jpg');
+var cherryStCoffee = new Restaurant('Cherry Street Coffee', '2621 5th Ave, Seattle, WA', '(206) 8121298', ['coffee'], false, 'img/cherrystreet.jpg');
+var modPizza = new Restaurant('Mod Pizza', '305 Harrison St., Seattle, WA', '(206) 4286315', ['pizza', 'beer'], true, 'img/mod.jpg');
+var plumPantry = new Restaurant('Plum Pantry', '305 Harrison St., Seattle, WA', '(206) 4286337', ['healthy', 'salad', 'vegan'], true, 'img/plum.jpg');
+var premMeatPies = new Restaurant('Premier Meat Pies', '305 Harrison St., Seattle, WA', '(206) 4286280', ['pie', 'beer'], false, 'img/meatpies.jpg');
+var quincysBurg = new Restaurant('Quincy\'s Charbroiled Burgers', '305 Harrison St., Seattle, WA', '(206) 7282228', ['american', 'seafood', 'beer'], false, 'img/quincy.jpg');
+var sportBar = new Restaurant('Sport Restaurant & Bar', '140 4th Ave N, Seattle, WA', '(206) 4047767', ['american', 'pizza', 'beer'], false, 'img/sport.jpg');
+var streetBean = new Restaurant('Street Bean Coffee', '2711 3rd Ave Seattle, WA', '(206) 7086803', ['coffee'], false, 'img/streetbean.jpg');
+var tacoDelMar = new Restaurant('Taco Del Mar', '411 Cedar Street Seattle, WA', '(206) 4431000', ['mexican'], true, 'img/taco.jpg');
+var thaiOnOne = new Restaurant('Thai on 1', '2904 1st Ave, Seattle, WA', '(206) 4414348', ['thai', 'beer'], false, 'img/thai.jpg');
+var uptownExpresso = new Restaurant('Uptown Expresso', '2801 Alaskan Way Seattle, WA', '(206) 7707777', ['coffee'], false, 'img/uptown.jpg');
+var worldClassCoffee = new Restaurant('World Class Coffee', '2819 2nd Ave, Seattle, WA 98121', '(206) 4412967', ['sandwiches', 'teriyaki', 'coffee'], false, 'img/world.jpg');
 
 fivePointCafe.reviews = [fivept1, fivept2];
 bangBangCafe.reviews = [bang1];
