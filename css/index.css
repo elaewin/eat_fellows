@@ -12,12 +12,12 @@ section {
   transition: 450ms all;
 }
 
-span {
-  width: 150px;
+span#flyout_label {
+  width: 411px;
   position: absolute;
   display: block;
   transform: rotate(-90deg);
-  left: -55px;
+  left: -185px;
   top: 80px;
   font-family: "Source Code Pro", monospace;
   font-size: 1.25em;
