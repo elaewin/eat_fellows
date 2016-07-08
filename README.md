@@ -51,6 +51,8 @@ Code Fellows logo from: https://www.switchup.org/bootcamps/code-fellows
 * Clear comments on all code so others can tell what it does.
 * If you see a variable name, etc., that is not self-explanatory, ask about it!
 
+---
+
 ### Thanks To:
 * Instructor Sam, for staying late and keeping us on track.
 * Instructor Brian, for the demo of and help with the flyout menu, as well as with other CSS woes.
