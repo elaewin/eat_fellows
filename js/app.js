@@ -19,13 +19,14 @@ var tooltips = []; //Array of infowindows to keep only 1 open
 var getRandom = document.getElementById('get_random');
 var showAll = document.getElementById('show_all');
 var flyoutMenu = document.getElementById('flyout');
+var allowClose = true;
 //++-------------++
 //++ Google maps ++
 function initMap() {
 // this func is called in the google link in the HTML, we don't need to call it in main()
   map = new google.maps.Map(document.getElementById('map'), {
     center: cfLoc,
-    scrollwheel: false,
+    scrollwheel: true,
     zoom: 15
   });
   buildMarkers(restaurants);
@@ -257,7 +258,12 @@ function listenForEvents() {
   try {
     toggler('active');  //Activate out flyout menu
     activateMenu();
-    window.setTimeout(deactivateMenu, 5000);
+    allowClose = true;
+    window.setTimeout(function() {
+      if (allowClose === true) {
+        deactivateMenu();
+      }
+    }, 5000);
     costBox.addEventListener('change', function() {
       costClick(costBox.value);
     }, false);
