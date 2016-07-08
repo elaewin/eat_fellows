@@ -25,14 +25,10 @@
       <form id="add_restaurant">
         <fieldset>
           <legend>Restaurant Details</legend>
-          <label for="rest_name">Restaurant Name:</label>
-          <input type="text" name="rest_name" id="rest_name" placeholder="Business name" />
-        </fieldset>
-        <fieldset class="phone_photo">
-          <label for="rest_phone">Phone Number:</label>
-          <input type="tel" name="rest_phone" id="rest_phone" placeholder="Business phone number"/>
-          <label for="rest_image">Photo:</label>
-          <input type="url" name="rest_image" id="rest_image" placeholder="URL for photo" default="img/delicious.jpg"/>
+          <label for="rest_name">Restaurant:</label>
+          <input type="text" name="rest_name" id="rest_name" placeholder="What's the name of the place?" />
+          <label for="rest_phone" class="phone_label">Phone Number:</label>
+          <input  class="phone_input" type="tel" name="rest_phone" id="rest_phone" placeholder="206-123-4567"/>
         </fieldset>
         <fieldset class="splitter">
           <label for="rest_addy">Address:</label>
