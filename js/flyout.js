@@ -12,6 +12,7 @@ function toggler(state) {
 }
 
 function activateMenu() {
+  allowClose = false;
   text.style.display = 'none';
   container.setAttribute('class', 'active');
   container.style.cursor = 'auto';

@@ -25,9 +25,16 @@ var divAddNew = document.getElementById('add_new_review');
 function addNewRest(name, address, phone, types, vegan, image) {
 // Add a new restaurant to the database
   tmp = new Restaurant(name, address, phone, types, vegan, image);
-  restaurants.push(tmp);
-  restaurants = sortByName(restaurants);
-  localStorage.eatFellows = JSON.stringify(restaurants);
+  for (var i = 0; i < restaurants.length; i++) {
+    if (tmp.name = restaurants[i].name && tmp.phone === restaurants[i].phone) {
+      alert('Restaurant already exists!');
+    } else {
+      restaurants.push(tmp);
+      restaurants = sortByName(restaurants);
+      localStorage.eatFellows = JSON.stringify(restaurants);
+      localStorage.storedSelection = JSON.stringify(tmp);
+    }
+  }
 }
 
 function addNewReview(restname, username, faveDish, code, cost, rating, comment) {
