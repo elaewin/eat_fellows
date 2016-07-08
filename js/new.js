@@ -1,20 +1,9 @@
 'use strict';
 
-
 var form = document.getElementById('add_restaurant');
 var cuisineType1 = document.getElementById('cuisine1');
 var cuisineType2 = document.getElementById('cuisine2');
 var cuisineType3 = document.getElementById('cuisine3');
-
-//review variables
-var uname_r = document.getElementById('username');
-var fave_r = document.getElementById('fav_item');
-var code_r = document.getElementById('code_check');
-var cost_r = document.getElementById('cost_drp');
-var rate_r = document.getElementById('rating_drp');
-var comments_r = document.getElementById('review');
-var submit = document.getElementById('submitReviewBtn');
-var divAddNew = document.getElementById('add_new_review');
 
 function handleAddRest(event) {
   event.preventDefault();
