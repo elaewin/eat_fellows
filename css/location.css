@@ -81,6 +81,12 @@ h3 {
   border-bottom: none;
 }
 
+.no_reviews {
+  text-align: center;
+  font-size: 1.25em;
+  font-style: italic;
+}
+
 form {
   /*align-content: center;
   text-align: center;*/
@@ -96,7 +102,7 @@ label {
 }
 
 input {
-  
+
 }
 
 @keyframes hideDiv {

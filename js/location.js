@@ -109,8 +109,13 @@ var loadDetails = function() {
       tf = 'No :(';
     }
     gfc.textContent = tf;
-    for(var i = 0; i < selectedRest.reviews.length; i++) {
-      buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
+    if(selectedRest.reviews.length < 1) {
+      buildNewElement('li', 'No reviews yet! Leave one below.', ulEl, 'class', 'no_reviews'); {
+      }
+    } else {
+      for(var i = 0; i < selectedRest.reviews.length; i++) {
+        buildNewElement('li', '<p>' + selectedRest.reviews[i].name + ' says:' + '</p>' + '<p>"' + selectedRest.reviews[i].comment + '"</p><p>Favorite thing to order: ' + selectedRest.reviews[i].faveDish + '</p>' , ulEl);
+      }
     }
   }
 };
