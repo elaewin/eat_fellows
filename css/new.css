@@ -1,0 +1,82 @@
+h2 {
+  text-align: center;
+  padding: 30px;
+}
+
+form {
+  /*align-content: center;
+  text-align: center;*/
+  margin: 0px 165px;
+}
+
+fieldset {
+  margin: 10px 0px;
+}
+
+.text_area {
+  width: 505px;
+  padding: 0 30px;
+  margin: 10px auto;
+}
+
+fieldset ul {
+  margin-left: 30px;
+}
+
+fieldset li {
+  display: inline;
+}
+
+legend {
+  font-family: "Monda", sans-serif;
+  color: #cf2f26;
+  font-size: 1.25em;
+  padding: 10px 0 15px;
+}
+
+label {
+  padding-right: 5px;
+  margin-left: 30px;
+}
+
+input {
+  margin-right: 30px;
+}
+
+.phone_photo input {
+  width: 158px;
+}
+
+#rest_name {
+  width: 425px
+}
+
+#rest_addy {
+  width: 491px;
+}
+
+.splitter {
+  padding-bottom: 10px;
+  border-bottom: 1px #4d4d4d solid;
+}
+
+.menu {
+  width: 180px;
+  margin-right: 10px;
+}
+
+#new_cuisine {
+  width: 180px;
+}
+
+#submit_rest_btn {
+  background: #a51a13;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  display: block;
+  font-family: "Source Code Pro", monospace;
+  margin: 10px auto;
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
