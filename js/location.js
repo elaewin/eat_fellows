@@ -28,6 +28,7 @@ function addNewRest(name, address, phone, types, vegan, image) {
   for (var i = 0; i < restaurants.length; i++) {
     if (tmp.name = restaurants[i].name && tmp.phone === restaurants[i].phone) {
       alert('Restaurant already exists!');
+      return;
     } else {
       restaurants.push(tmp);
       restaurants = sortByName(restaurants);
