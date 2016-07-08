@@ -21,41 +21,37 @@
     <main>
       <h2>Add a New Restaurant</h2>
       <form id="add_restaurant">
-        <fieldset class="splitter">
-          <label for="username">Your name:</label>
-          <input type="text" name="username" id="username" placeholder="Who are you?" required>
-        </fieldset>
         <fieldset>
           <legend>Restaurant Details</legend>
           <label for="rest_name">Restaurant Name:</label>
-          <input type="text" name="rest_name" id="rest_name" placeholder="Business name" required/>
+          <input type="text" name="rest_name" id="rest_name" placeholder="Business name" />
         </fieldset>
         <fieldset class="phone_photo">
           <label for="rest_phone">Phone Number:</label>
           <input type="tel" name="rest_phone" id="rest_phone" placeholder="Business phone number"/>
           <label for="rest_image">Photo:</label>
-          <input type="url" name="rest_image" id="rest_image" placeholder="URL for photo"/>
+          <input type="url" name="rest_image" id="rest_image" placeholder="URL for photo" default="img/delicious.jpg"/>
         </fieldset>
         <fieldset class="splitter">
           <label for="rest_addy">Address:</label>
-          <input type="text" name="rest_ady" id="rest_addy" placeholder="Google can help with this" required/>
+          <input type="text" name="rest_ady" id="rest_addy" placeholder="Google can help with this"/>
         </fieldset>
         <fieldset>
           <legend>What kinds of food does the restaurant serve?</legend>
           <ul>
             <li>
-              <select class="menu" id="cuisine1" required>
-                <option>Pick a kind of food</option>
+              <select class="menu" id="cuisine1">
+                <option>Add a kind of food</option>
               </select>
             </li>
             <li>
               <select class="menu" id="cuisine2">
-                <option>Add another kind</option>
+                <option>Add a kind of food</option>
               </select>
             </li>
             <li>
               <select class="menu" id="cuisine3">
-                <option>Add another kind</option>
+                <option>Add a kind of food</option>
               </select>
             </li>
           </ul>
@@ -66,41 +62,9 @@
         </fieldset>
         <fieldset class="splitter">
           <label for="vegan_check">This place has vegan options.</label>
-          <input type="checkbox" id="vegan_check" class="vegan_check">
+          <input type="checkbox" id="vegan_check" class="vegan_check"/>
         </fieldset>
-        <fieldset>
-          <legend>Add a Review</legend>
-          <label for="fav_item">Favorite Item:</label>
-          <input type="text" name="fav_item" id="fav_item" placeholder="What's the best thing on the menu?" value="Nothing!">
-        </fieldset>
-        <fieldset>
-          <label for="cost_drp">Cost for a typical order?</label>
-          <select id="cost_drp" required>
-            <option value=0>Select price</option>
-            <option value=1>1 - Cheap!</option>
-            <option value=2>2 - Reasonable!</option>
-            <option value=3>3 - Pricey!</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <label for="rating_drp">How would you rate this restaurant?</label>
-          <select id="rating_drp" required>
-            <option value=0>Select rating</option>
-            <option value=1>1 - Do not want.</option>
-            <option value=2>2 - Not great.</option>
-            <option value=3>3 - Alright.</option>
-            <option value=4>4 - Pretty great.</option>
-            <option value=5>5 - I'm a fan!</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <label for="code_check">This is a good place to code!</label>
-          <input type="checkbox" id="code_check" class="custom_check">
-        </fieldset>
-        <fieldset class="text_area">
-          <textarea name="review" id="review" rows="8" cols="90" placeholder="Now tell us what you think of the place."></textarea>
-        </fieldset>
-          <input type="submit" value="Add this restaurant to Eat Fellows!" id="submit_rest_btn" required>
+          <input type="submit" value="Add this restaurant to Eat Fellows!" id="submit_rest_btn"/>
         </form>
       <div class="clearfix"></div>
     </main>

@@ -261,7 +261,6 @@ function listenForEvents() {
       localStorage.storedSelection = JSON.stringify(restaurants[randomNum]);
       console.log('number is', randomNum);
     };
-
     getRandom.addEventListener('click', getRandomRest);
   } catch(error) {
   }

@@ -1,16 +1,10 @@
 'use strict';
 
-var cuisinesArray = [];
 
-var restName = document.getElementById('rest_name');
-var restPhone = document.getElementById('rest_phone');
-var restAddy = document.getElementById('rest_addy');
-var restPic = document.getElementById('rest_image');
-var cuisine1 = document.getElementById('cuisine1');
-var cuisine2 = document.getElementById('cuisine2');
-var cuisine3 = document.getElementById('cuisine3');
-var newCuisine = document.getElementById('new_cuisine');
-var isVegan = document.getElementById('vegan_check');
+var form = document.getElementById('add_restaurant');
+var cuisineType1 = document.getElementById('cuisine1');
+var cuisineType2 = document.getElementById('cuisine2');
+var cuisineType3 = document.getElementById('cuisine3');
 
 //review variables
 var uname_r = document.getElementById('username');
@@ -22,25 +16,54 @@ var comments_r = document.getElementById('review');
 var submit = document.getElementById('submitReviewBtn');
 var divAddNew = document.getElementById('add_new_review');
 
-var handleAddRest = function() {
+function handleAddRest(event) {
   event.preventDefault();
 
-  var newName = event.target.restName.value;
-  var newAddress = event.target.restAddy.value;
-  var newPhone = event.target.restPhone.value;
-  var newVegan = event.target.isVegan.value;
-  var newImage = event.target.restPic.value;
+  var cuisinesArray = [];
 
-  
+  console.log(event);
+  console.log('this is a string');
 
-  checkVsFoodTypes(event.target.cuisine1.value);
-  checkVsFoodTypes(event.target.cuisine2.value);
-  checkVsFoodTypes(event.target.cuisine3.value);
-  checkVsFoodTypes(event.target.newCuisine.value);
+  var newName = event.target.rest_name.value;
+  var newAddress = event.target.rest_addy.value;
+  var newPhone = event.target.rest_phone.value;
+  var newVegan = event.target.vegan_check.value;
+  var newImage = event.target.rest_image.value;
+  var addType1 = event.target.cuisine1.value;
+  var addType2 = event.target.cuisine2.value;
+  var addType3 = event.target.cuisine3.value;
+  var newType = event.target.new_cuisine.value;
 
-  // addNewRest(name, address, phone, types, vegan, image)
+  if(!checkVsFoodTypes(newType) && newType !== '') {
+    cuisinesArray.push(newType);
+  };
+
+  if(addType2 === addType1) {
+    if(addType1 && addType1 !== 'Add a kind of food') {
+      cuisinesArray.push(addType1);
+    };
+  } else {
+    if(addType1 && addType1 !== 'Add a kind of food') {
+      cuisinesArray.push(addType1);
+    }
+    if(addType2 && addType2 !== 'Add a kind of food'){
+      cuisinesArray.push(addType2);
+    }
+  }
+
+  if(addType3 !== addType1 && addType3 !== addType2) {
+    if(addType3 && addType3 !== 'Add a kind of food') {
+      cuisinesArray.push(addType3);
+    }
+  }
+
+  cuisinesArray.sort();
+  console.log('cuisinesArray', cuisinesArray);
+
+  addNewRest(newName, newAddress, newPhone, cuisinesArray, newVegan, 'img/delicious.jpg');
 };
 
+//Build food type dropdowns
 var populateTypeList = function(target) {
   typesOfFood.sort();
   for(var i = 0; i < typesOfFood.length; i++) {
@@ -48,15 +71,18 @@ var populateTypeList = function(target) {
   }
 };
 
+// Check if a type of food is already in the typesOfFood array
 var checkVsFoodTypes = function(input) {
-  var inArray = false;
   for(var i = 0; i < typesOfFood.length; i++) {
-    if(typesOfFood[i] === input) {
-      return input;
-}
+    if(typesOfFood[i] === input.toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+};
 
-submit_rest_btn.addEventListener('click', handleAddRest);
+form.addEventListener('submit', handleAddRest);
 
-populateTypeList(cuisine1);
-populateTypeList(cuisine2);
-populateTypeList(cuisine3);
+populateTypeList(cuisineType1);
+populateTypeList(cuisineType2);
+populateTypeList(cuisineType3);
