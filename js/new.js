@@ -53,7 +53,6 @@ function handleAddRest(event) {
   var newAddress = event.target.rest_addy.value;
   var newPhone = event.target.rest_phone.value;
   var newVegan = event.target.vegan_check.checked;
-  var newImage = event.target.rest_image.value;
   var addType1 = event.target.cuisine1.value;
   var addType2 = event.target.cuisine2.value;
   var addType3 = event.target.cuisine3.value;
@@ -106,7 +105,6 @@ var checkVsFoodTypes = function(input) {
   return false;
 };
 
-autocomplete.addListener('place_changed', fillInAddress);
 form.addEventListener('submit', handleAddRest);
 
 populateTypeList(cuisineType1);
