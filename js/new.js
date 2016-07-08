@@ -5,6 +5,42 @@ var cuisineType1 = document.getElementById('cuisine1');
 var cuisineType2 = document.getElementById('cuisine2');
 var cuisineType3 = document.getElementById('cuisine3');
 
+var autocomplete;
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['establishment']});
+
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  var place = autocomplete.getPlace();
+  console.dir(place);
+  document.getElementById('rest_name').value = place.name;
+  document.getElementById('rest_addy').value = place.formatted_address;
+  document.getElementById('rest_phone').value = place.formatted_phone_number;
+}
+
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+
 function handleAddRest(event) {
   event.preventDefault();
 
@@ -70,6 +106,7 @@ var checkVsFoodTypes = function(input) {
   return false;
 };
 
+autocomplete.addListener('place_changed', fillInAddress);
 form.addEventListener('submit', handleAddRest);
 
 populateTypeList(cuisineType1);

@@ -47,6 +47,11 @@ input {
   margin-right: 30px;
 }
 
+#autocomplete {
+  margin: 0 30px;
+  width: 563px;
+}
+
 .phone_input {
   width: 100px;
 }
