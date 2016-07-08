@@ -82,9 +82,13 @@ function handleAddRest(event) {
   }
 
   cuisinesArray.sort();
-  console.log('cuisinesArray', cuisinesArray);
 
-  addNewRest(newName, newAddress, newPhone, cuisinesArray, newVegan, 'img/delicious.jpg');
+  if(cuisinesArray.length < 1) {
+    alert('Add at least one food type, you lazy bum!');
+  } else {
+    addNewRest(newName, newAddress, newPhone, cuisinesArray, newVegan, 'img/delicious.jpg');
+    window.location.href = 'location.html';
+  }
 };
 
 //Build food type dropdowns
