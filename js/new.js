@@ -82,6 +82,7 @@ function handleAddRest(event) {
   }
 
   cuisinesArray.sort();
+  console.log('cuisinesArray', cuisinesArray);
 
   if(cuisinesArray.length < 1) {
     alert('Add at least one food type, you lazy bum!');

@@ -26,7 +26,8 @@ function addNewRest(name, address, phone, types, vegan, image) {
 // Add a new restaurant to the database
   for (var i = 0; i < restaurants.length; i++) {
     if (phone === restaurants[i].phone) {
-      alert('Restaurant exists already!');
+      alert('Somebody already added that place! Copycat.');
+      localStorage.storedSelection = JSON.stringify(restaurants[i]);
       return;
     }
   }
