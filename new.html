@@ -23,20 +23,19 @@
     <main>
       <h2>Add a New Restaurant</h2>
       <form id="add_restaurant">
-        <fieldset>
+        <fieldset class="splitter" id="locationField">
           <legend>Restaurant Details</legend>
-          <label for="rest_name">Restaurant Name:</label>
-          <input type="text" name="rest_name" id="rest_name" placeholder="Business name" />
+          <input id="autocomplete" placeholder="Enter the address of the restaurant you'd like to add here and let Google autofill the contact info!" onFocus="geolocate()" type="text"></input>
         </fieldset>
-        <fieldset class="phone_photo">
-          <label for="rest_phone">Phone Number:</label>
-          <input type="tel" name="rest_phone" id="rest_phone" placeholder="Business phone number"/>
-          <label for="rest_image">Photo:</label>
-          <input type="url" name="rest_image" id="rest_image" placeholder="URL for photo" default="img/delicious.jpg"/>
+        <fieldset>
+          <label for="rest_name">Restaurant:</label>
+          <input type="text" name="rest_name" id="rest_name" placeholder="What's the name of the place?"/>
+          <label for="rest_phone" class="phone_label">Phone Number:</label>
+          <input  class="phone_input" type="tel" name="rest_phone" id="rest_phone" placeholder="206-123-4567"/>
         </fieldset>
         <fieldset class="splitter">
           <label for="rest_addy">Address:</label>
-          <input type="text" name="rest_ady" id="rest_addy" placeholder="Google can help with this"/>
+          <input type="text" name="rest_addy" id="rest_addy" placeholder="Google can help with this"/>
         </fieldset>
         <fieldset>
           <legend>What kinds of food does the restaurant serve?</legend>
@@ -73,8 +72,8 @@
     <footer>
       <p>Something clever goes here.</p>
     </footer>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ5OV0nCy-Fu_HpxqTdEH83JG_CoaU6M&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ5OV0nCy-Fu_HpxqTdEH83JG_CoaU6M&libraries=places&callback=initAutocomplete"
+        async defer></script>
 		<script src="js/reviews.js"></script>
     <script src="js/restaurants.js"></script>
     <script src="js/app.js"></script>

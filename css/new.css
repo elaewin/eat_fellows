@@ -39,16 +39,25 @@ label {
   margin-left: 30px;
 }
 
+.phone_label {
+  margin-left: -15px;
+}
+
 input {
   margin-right: 30px;
 }
 
-.phone_photo input {
-  width: 158px;
+#autocomplete {
+  margin: 0 30px;
+  width: 563px;
+}
+
+.phone_input {
+  width: 100px;
 }
 
 #rest_name {
-  width: 425px
+  width: 224px
 }
 
 #rest_addy {
